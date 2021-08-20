@@ -1,0 +1,41 @@
+body {
+    background-color: #181818;
+}
+
+.card {
+    width: 200px;
+    height: 200px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #000000;
+}
+
+#card0 {
+    position: absolute;
+    top: 28%;
+    left: 28%;
+    transform: translate(-50%, -50%);
+}
+
+#card1 {
+    position: absolute;
+    top: 28%;
+    right: 28%;
+    transform: translate(50%, -50%);
+}
+
+#card2 {
+    position: absolute;
+    bottom: 28%;
+    left: 28%;
+    transform: translate(-50%, 50%);
+}
+
+#card3 {
+    position: absolute;
+    bottom: 28%;
+    right: 28%;
+    transform: translate(50%, 50%);
+}

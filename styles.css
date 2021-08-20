@@ -1,0 +1,43 @@
+body {
+    background-color: #181818;
+}
+
+.gameContainer {
+    height: 570px;
+    width: 520px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+    color: #ffffff;
+    background-color: #3D3D3D;
+}
+
+#title {
+    position: relative;
+    font-size: 50px;
+    left: 5px;
+}
+
+#game {
+    background-color: #ffffff;
+    height: 500px;
+    width: 500px;
+    position: relative;
+    border: 1px solid #ffffff;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#score {
+    position: absolute;
+    right: 2.5%;
+    top: 2%;
+}
+
+#highScore {
+    position: absolute;
+    right: 2.5%;
+    top: 5%;
+}
