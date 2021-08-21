@@ -39,3 +39,15 @@ body {
     right: 28%;
     transform: translate(50%, 50%);
 }
+
+@media screen and (max-width: 300px) {
+    .card {
+        width: 125px;
+        height: 125px;
+        background-color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid #000000;
+    }
+}

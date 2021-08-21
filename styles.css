@@ -32,12 +32,54 @@ body {
 
 #score {
     position: absolute;
+    font-size: 16px;
     right: 2.5%;
     top: 2%;
 }
 
 #highScore {
     position: absolute;
+    font-size: 16px;
     right: 2.5%;
     top: 5%;
+}
+
+@media screen and (max-width: 550px) {
+    .gameContainer {
+        height: 350px;
+        width: 320px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        border: 1px solid #ffffff;
+        border-radius: 10px;
+        color: #ffffff;
+        background-color: #3D3D3D;
+    }
+    #title {
+        position: relative;
+        font-size: 30px;
+        left: 5px;
+    }
+    #game {
+        background-color: #ffffff;
+        height: 300px;
+        width: 300px;
+        position: relative;
+        border: 1px solid #ffffff;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    #score {
+        position: absolute;
+        font-size: 14px;
+        right: 2.5%;
+        top: 2%;
+    }
+    #highScore {
+        position: absolute;
+        font-size: 14px;
+        right: 2.5%;
+        top: 5%;
+    }
 }
