@@ -12,10 +12,14 @@
 </head>
 
 <body onload="start()">
-    <div class="gameContainer">
+    <div class="game-container">
+        <div class="more-info">
+            <span id="dot" onclick="option()">?</span>
+            <span id="option-container"></span>
+        </div>
         <span id="title">Peritab</span>
         <span id="score">Score: 00000000</span>
-        <span id="highScore">High Score: 00000000</span>
+        <span id="high-score">High Score: 00000000</span>
         <iframe title="game" id="game" src="./game/2x2/index.html" type="text/html"></iframe>
     </div>
 </body>

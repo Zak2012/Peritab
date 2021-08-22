@@ -1,21 +1,14 @@
 var cardDoc = arrayInit(4);
-
-var cardDefaultBg = "#ffffff";
-
 var cardFlipped = arrayInit(cardDoc.length, false);
-
 var cardFinished = arrayInit(cardDoc.length, false);
-
 var cardIndex = 0;
-
 var isFinish = 0;
-
 var cardValue = arrayInit(cardDoc.length);
-
-var cardFlipBg = ["#ff0000", "#00ff00", "#0000ff", "#ffff00"];
-
+var cardDefaultBg = "#ffffff";
+var cardFlipBg = ["#ff0000", "#00ff00"];
 var score = 0;
-
+var lastCard = null;
+var curCard = 0;
 sessionStorage.setItem("Score", score.toString())
 
 function randRange(start, stop) {
@@ -35,6 +28,7 @@ function arrayInit(n, val = 0) {
 }
 
 function cardFlip(card) {
+    curCard = card;
     if (!cardFinished[card]) {
         cardIndex = index(cardFlipped, true);
         cardFlipped[card] = !cardFlipped[card]
@@ -46,27 +40,28 @@ function cardFlip(card) {
             }
         }
     }
+    lastCard = curCard;
 }
 
 async function checkCard() {
     let cdIndex = index(cardFlipped, true);
-    let cdVal0 = cardValue[cdIndex[0]];
-    let cdVal1 = cardValue[cdIndex[1]];
-    await sleep(1000);
-    if (cdVal0 === cdVal1) {
-
-        for (let i = 0; i < 2; i++) {
-            cardFlipped[cdIndex[i]] = true;
-            cardDoc[cdIndex[i]].style.opacity = 0;
-            cardFinished[cdIndex[i]] = true;
-            isFinish++;
-        }
-        score++;
-        sessionStorage.setItem("Score", score.toString())
-
-    } else {
-        for (let i = 0; i < 2; i++) {
-            cardFlipped[cdIndex[i]] = false;
+    let cdVal0 = cardValue[curCard];
+    let cdVal1 = cardValue[lastCard];
+    if (cdIndex[0] === lastCard && cdIndex[1] === curCard || cdIndex[0] === curCard && cdIndex[1] === lastCard) {
+        await sleep(500)
+        if (cdVal0 === cdVal1) {
+            for (let i = 0; i < 2; i++) {
+                cardFlipped[cdIndex[i]] = true;
+                cardDoc[cdIndex[i]].style.opacity = 0;
+                cardFinished[cdIndex[i]] = true;
+                isFinish++;
+            }
+            score++;
+            sessionStorage.setItem("Score", score.toString())
+        } else {
+            for (let i = 0; i < 2; i++) {
+                cardFlipped[cdIndex[i]] = false;
+            }
         }
     }
 
@@ -124,19 +119,16 @@ function randomizeCard() {
 }
 
 function start() {
-    cardDoc = [
-        document.getElementById("card0"),
-        document.getElementById("card1"),
-        document.getElementById("card2"),
-        document.getElementById("card3")
-    ]
+    for (let i = 0; i < cardDoc.length; i++) {
+        cardDoc[i] = document.getElementById(`card-${i}`);
+    }
     randomizeCard();
     update();
 }
 async function update() {
     for (let i = 0; i < cardFlipped.length; i++) {
         if (cardFlipped[i]) {
-            cardDoc[i].style.backgroundColor = cardFlipBg[i];
+            cardDoc[i].style.backgroundColor = cardFlipBg[cardValue[i]];
         } else {
             cardDoc[i].style.backgroundColor = cardDefaultBg;
         }

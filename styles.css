@@ -1,102 +1,122 @@
-body {
-    background-color: #181818;
+:root {
+    --light-grey: #3d3d3d;
+    --game-container-height: 570px;
+    --game-container-width: 520px;
+    --title-left: 2%;
+    --title-font-size: 50px;
+    --scores-font-size: 16px;
+    --scores-right: 2.5%;
+    --game-size: 500px;
 }
 
-.gameContainer {
-    height: 570px;
-    width: 520px;
+body {
+    background-color: #181818;
+    /*user-select: none;*/
+}
+
+.game-container {
+    height: var(--game-container-height);
+    width: var(--game-container-width);
     position: absolute;
     left: 50%;
-    border: 1px solid #ffffff;
-    border-radius: 10px;
+    top: 50%;
     color: #ffffff;
-    background-color: #3D3D3D;
-    transform: translateX(-50%);
-    -webkit-transform: translateX(-50%);
-    -moz-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
-    -o-transform: translateX(-50%);
+    background-color: var(--light-grey);
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.more-info {
+    position: relative;
+    left: 30%;
+    top: 5%;
+    color: #ffffff;
+    display: inline;
+}
+
+.more-info #dot {
+    position: relative;
+    height: 16px;
+    width: 16px;
+    font-size: 16px;
+    color: #181818;
+    background-color: #ffffff;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.more-info #option-container {
+    position: relative;
+    top: 0.5%;
+    right: 2.5%;
+    height: 16px;
+    display: inline-block;
+    background-color: #aaaaaa;
 }
 
 #title {
-    position: relative;
-    font-size: 50px;
-    left: 2.5%;
+    position: absolute;
+    font-size: var(--title-font-size);
+    left: var(--title-left);
+    display: inline-block;
 }
 
 #game {
     background-color: #ffffff;
-    height: 500px;
-    width: 500px;
-    position: relative;
+    height: var(--game-size);
+    width: var(--game-size);
+    position: absolute;
     border: 1px solid #ffffff;
     left: 50%;
+    top: 10%;
     transform: translateX(-50%);
     -webkit-transform: translateX(-50%);
     -moz-transform: translateX(-50%);
     -ms-transform: translateX(-50%);
     -o-transform: translateX(-50%);
+    display: inline-block;
 }
 
 #score {
     position: absolute;
-    font-size: 16px;
-    right: 2.5%;
+    font-size: var(--scores-font-size);
+    right: var(--scores-right);
     top: 2%;
+    display: inline-block;
 }
 
-#highScore {
+#high-score {
     position: absolute;
-    font-size: 16px;
-    right: 2.5%;
+    font-size: var(--scores-font-size);
+    right: var(--scores-right);
     top: 5%;
+    display: inline-block;
 }
 
 @media only screen and (max-width: 550px),
 only screen and (max-height: 570px) {
-    .gameContainer {
-        height: 350px;
-        width: 320px;
-        position: absolute;
-        left: 50%;
-        border: 1px solid #ffffff;
-        border-radius: 10px;
-        color: #ffffff;
-        background-color: #3D3D3D;
-        transform: translateX(-50%);
-        -webkit-transform: translateX(-50%);
-        -moz-transform: translateX(-50%);
-        -ms-transform: translateX(-50%);
-        -o-transform: translateX(-50%);
-    }
-    #title {
-        position: relative;
-        font-size: 30px;
-        left: 3%;
-    }
-    #game {
-        background-color: #ffffff;
-        height: 300px;
-        width: 300px;
-        position: relative;
-        border: 1px solid #ffffff;
-        left: 50%;
-        transform: translateX(-50%);
-        -webkit-transform: translateX(-50%);
-        -moz-transform: translateX(-50%);
-        -ms-transform: translateX(-50%);
-        -o-transform: translateX(-50%);
-    }
-    #score {
-        position: absolute;
-        font-size: 12px;
-        right: 3%;
-        top: 2%;
-    }
-    #highScore {
-        position: absolute;
-        font-size: 12px;
-        right: 3%;
-        top: 5%;
+    body {
+        --game-container-height: 350px;
+        --game-container-width: 320px;
+        --title-left: 3%;
+        --title-font-size: 30px;
+        --scores-font-size: 12px;
+        --scores-right: 2%;
+        --game-size: 300px;
     }
 }

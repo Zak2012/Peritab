@@ -3,16 +3,21 @@ body {
 }
 
 .card {
-    width: 200px;
-    height: 200px;
+    width: 42%;
+    height: 42%;
     background-color: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
     border: 1px solid #000000;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
 }
 
-#card0 {
+#card-0 {
     position: absolute;
     top: 28%;
     left: 28%;
@@ -23,7 +28,7 @@ body {
     -o-transform: translate(-50%, -50%);
 }
 
-#card1 {
+#card-1 {
     position: absolute;
     top: 28%;
     right: 28%;
@@ -34,7 +39,7 @@ body {
     -o-transform: translate(50%, -50%);
 }
 
-#card2 {
+#card-2 {
     position: absolute;
     bottom: 28%;
     left: 28%;
@@ -45,7 +50,7 @@ body {
     -o-transform: translate(-50%, 50%);
 }
 
-#card3 {
+#card-3 {
     position: absolute;
     bottom: 28%;
     right: 28%;
@@ -54,16 +59,4 @@ body {
     -moz-transform: translate(50%, 50%);
     -ms-transform: translate(50%, 50%);
     -o-transform: translate(50%, 50%);
-}
-
-@media screen and (max-width: 300px) {
-    .card {
-        width: 127.5px;
-        height: 127.5px;
-        background-color: #ffffff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border: 1px solid #000000;
-    }
 }
