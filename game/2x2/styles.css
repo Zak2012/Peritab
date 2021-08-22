@@ -17,6 +17,10 @@ body {
     top: 28%;
     left: 28%;
     transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
 }
 
 #card1 {
@@ -24,6 +28,10 @@ body {
     top: 28%;
     right: 28%;
     transform: translate(50%, -50%);
+    -webkit-transform: translate(50%, -50%);
+    -moz-transform: translate(50%, -50%);
+    -ms-transform: translate(50%, -50%);
+    -o-transform: translate(50%, -50%);
 }
 
 #card2 {
@@ -31,6 +39,10 @@ body {
     bottom: 28%;
     left: 28%;
     transform: translate(-50%, 50%);
+    -webkit-transform: translate(-50%, 50%);
+    -moz-transform: translate(-50%, 50%);
+    -ms-transform: translate(-50%, 50%);
+    -o-transform: translate(-50%, 50%);
 }
 
 #card3 {
@@ -38,12 +50,16 @@ body {
     bottom: 28%;
     right: 28%;
     transform: translate(50%, 50%);
+    -webkit-transform: translate(50%, 50%);
+    -moz-transform: translate(50%, 50%);
+    -ms-transform: translate(50%, 50%);
+    -o-transform: translate(50%, 50%);
 }
 
 @media screen and (max-width: 300px) {
     .card {
-        width: 125px;
-        height: 125px;
+        width: 127.5px;
+        height: 127.5px;
         background-color: #ffffff;
         display: flex;
         justify-content: center;

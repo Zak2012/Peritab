@@ -2,21 +2,18 @@
 <html lang="en">
 
 <head>
-    <meta http-equiv='cache-control' content='no-cache'>
-    <meta http-equiv='expires' content='0'>
-    <meta http-equiv='pragma' content='no-cache'>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <script src="scripts.js"></script>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./scripts.js"></script>
 </head>
 
-<body>
-    <span class="card" id="card0" onclick="cardFlip(this,0)"></span>
-    <span class="card" id="card1" onclick="cardFlip(this,1)"></span>
-    <span class="card" id="card2" onclick="cardFlip(this,2)"></span>
-    <span class="card" id="card3" onclick="cardFlip(this,3)"></span>
+<body onload="start()">
+    <span class="card" id="card0" onclick="cardFlip(0)"></span>
+    <span class="card" id="card1" onclick="cardFlip(1)"></span>
+    <span class="card" id="card2" onclick="cardFlip(2)"></span>
+    <span class="card" id="card3" onclick="cardFlip(3)"></span>
 </body>
 
 </html>
