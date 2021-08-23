@@ -1,3 +1,3 @@
 function home() {
-    window.location.replace("/run");
+    location.href = "/run";
 }
