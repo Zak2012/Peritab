@@ -12,7 +12,7 @@ function root_set(property, value) {
 }
 
 function home() {
-    location.href = "/run";
+    window.history.back();
 }
 
 function check_confirmation() {

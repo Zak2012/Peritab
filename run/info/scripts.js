@@ -1,3 +1,3 @@
 function home() {
-    location.href = "/run";
+    window.history.back();
 }
