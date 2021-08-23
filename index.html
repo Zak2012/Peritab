@@ -6,21 +6,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Peritab">
-    <link rel="stylesheet" href="./styles.css">
-    <script src="./scripts.js"></script>
+    <title>Peritab</title>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        #content {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0px;
+        }
+        /*user-select: none;*/
+    </style>
     <title>Peritab</title>
 </head>
 
-<body onload="start()">
-    <div class="game-container">
-        <div class="more-info">
-            <span id="dot" onclick="option()">?</span>
-            <span id="option-container"></span>
-        </div>
-        <span id="title">Peritab</span>
-        <span id="score">Score: 00000000</span>
-        <span id="high-score">High Score: 00000000</span>
-        <iframe title="game" id="game" src="./game/2x2/index.html" type="text/html"></iframe>
+<body>
+    <div id="content">
+        <iframe width="100%" height="100%" frameborder="0" src="./run"></iframe>
     </div>
 </body>
 

@@ -1,0 +1,45 @@
+:root {
+    --button-size: 50px;
+}
+
+body {
+    background-color: #181818;
+    color: #ffffff;
+}
+
+.title {
+    font-size: 35px;
+    line-height: 50px;
+}
+
+.context {
+    line-height: 1px;
+    font-size: 20px;
+}
+
+.context a {
+    color: #181818;
+    background-color: #ffffff;
+    text-decoration: none;
+}
+
+#home {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    width: var(--button-size);
+    height: var(--button-size);
+    background-color: #aaaaaa;
+    background-image: url(../icons/home.png);
+    background-size: calc(var(--button-size)/1.1);
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    filter: invert();
+    -webkit-filter: invert();
+    border-radius: 10%;
+    -webkit-border-radius: 10%;
+    -moz-border-radius: 10%;
+    -ms-border-radius: 10%;
+    -o-border-radius: 10%;
+}

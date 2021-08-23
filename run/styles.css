@@ -1,0 +1,191 @@
+:root {
+    --light-grey: #3d3d3d;
+    --game-container-height: 570px;
+    --game-container-width: 520px;
+    --title-left: 2%;
+    --title-font-size: 50px;
+    --scores-font-size: 16px;
+    --scores-right: 2.5%;
+    --game-size: 500px;
+    --menu-size: 50px;
+    --option-height: 16px;
+    --option-opacity: 0;
+    --option-child-color-1: #b0b0b0;
+    --option-child-color-2: #9a9a9a;
+    --menu-color: #7f7f7f;
+    --border-roundness: 15%;
+}
+
+body {
+    background-color: #181818;
+    color: #ffffff;
+}
+
+.game-container {
+    height: var(--game-container-height);
+    width: var(--game-container-width);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background-color: var(--light-grey);
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.menu {
+    position: fixed;
+    left: 0px;
+    bottom: var(--menu-size);
+    color: #ffffff;
+    opacity: var(--option-opacity);
+}
+
+#menu-button {
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    height: var(--menu-size);
+    width: var(--menu-size);
+    color: #ffffff;
+    background-color: var(--menu-color);
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--menu-size);
+    z-index: 6;
+    border-radius: var(--border-roundness);
+    -webkit-border-radius: var(--border-roundness);
+    -moz-border-radius: var(--border-roundness);
+    -ms-border-radius: var(--border-roundness);
+    -o-border-radius: var(--border-roundness);
+}
+
+#option-1 {
+    position: absolute;
+    left: calc(var(--menu-size) * 1);
+    width: var(--menu-size);
+    height: var(--menu-size);
+    background-color: var(--option-child-color-1);
+    background-image: url(./icons/settings.png);
+    background-size: calc(var(--menu-size)/2);
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    filter: invert();
+    -webkit-filter: invert();
+    border-radius: var(--border-roundness);
+    -webkit-border-radius: var(--border-roundness);
+    -moz-border-radius: var(--border-roundness);
+    -ms-border-radius: var(--border-roundness);
+    -o-border-radius: var(--border-roundness);
+}
+
+#option-2 {
+    position: absolute;
+    left: calc(var(--menu-size) * 2);
+    width: var(--menu-size);
+    height: var(--menu-size);
+    background-color: var(--option-child-color-2);
+    background-image: url(./icons/more.png);
+    background-size: calc(var(--menu-size)/2);
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    filter: invert();
+    -webkit-filter: invert();
+    border-radius: var(--border-roundness);
+    -webkit-border-radius: var(--border-roundness);
+    -moz-border-radius: var(--border-roundness);
+    -ms-border-radius: var(--border-roundness);
+    -o-border-radius: var(--border-roundness);
+}
+
+#option-3 {
+    position: absolute;
+    left: calc(var(--menu-size) * 3);
+    width: var(--menu-size);
+    height: var(--menu-size);
+    background-color: var(--option-child-color-1);
+    background-image: url(./icons/reload.png);
+    background-size: calc(var(--menu-size)/2);
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    filter: invert();
+    -webkit-filter: invert();
+    border-radius: var(--border-roundness);
+    -webkit-border-radius: var(--border-roundness);
+    -moz-border-radius: var(--border-roundness);
+    -ms-border-radius: var(--border-roundness);
+    -o-border-radius: var(--border-roundness);
+}
+
+#title {
+    position: absolute;
+    font-size: var(--title-font-size);
+    left: var(--title-left);
+    display: inline-block;
+}
+
+#game {
+    background-color: #ffffff;
+    height: var(--game-size);
+    width: var(--game-size);
+    position: absolute;
+    border: 1px solid #ffffff;
+    left: 50%;
+    top: 10%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    display: inline-block;
+}
+
+#score {
+    position: absolute;
+    font-size: var(--scores-font-size);
+    right: var(--scores-right);
+    top: 2%;
+    display: inline-block;
+}
+
+#high-score {
+    position: absolute;
+    font-size: var(--scores-font-size);
+    right: var(--scores-right);
+    top: 5%;
+    display: inline-block;
+}
+
+@media only screen and (max-width: 550px),
+only screen and (max-height: 570px) {
+    body {
+        --game-container-height: 350px;
+        --game-container-width: 320px;
+        --title-left: 3%;
+        --title-font-size: 30px;
+        --scores-font-size: 12px;
+        --scores-right: 2%;
+        --game-size: 300px;
+    }
+}

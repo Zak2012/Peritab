@@ -6,10 +6,9 @@ var isFinish = 0;
 var cardValue = arrayInit(cardDoc.length);
 var cardDefaultBg = "#ffffff";
 var cardFlipBg = ["#ff0000", "#00ff00"];
-var score = 0;
+var score = sessionStorage.getItem("Score");
 var lastCard = null;
 var curCard = 0;
-sessionStorage.setItem("Score", score.toString())
 
 function randRange(start, stop) {
     return Math.floor(Math.random() * (stop - start + 1)) + start;

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./scripts.js"></script>
+</head>
+
+<body onload="start()">
+    <div class="title">
+        <p>
+            <center>~ ~ ~ <u><b>Settings</b></u> ~ ~ ~</center>
+        </p>
+    </div>
+    <div id=reset-button-container>
+        <span id="reset-button" onclick="check_confirmation()"></span>
+        <span id="reset-button-text">Reset Data</span>
+    </div>
+    <span id="confirmation-background"></span>
+    <div id="reset-confirmation-container">
+        <span id="confirmation-reset">Are you sure you want to reset everything?</span>
+        <span id="confirm-reset" onclick="confirmReset()"><p>Confirm</p></span>
+        <span id="cancel-reset" onclick="cancelReset()"><p>Cancel</p></span>
+
+    </div>
+
+
+
+    <span id="home" onclick="home()"></span>
+</body>
+
+</html>

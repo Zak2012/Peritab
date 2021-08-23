@@ -1,0 +1,175 @@
+:root {
+    --button-size: 50px;
+    --border-roundness: 15%;
+    --confirmation-opacity: 0;
+}
+
+body {
+    background-color: #181818;
+    color: #ffffff;
+}
+
+.title {
+    font-size: 35px;
+    line-height: 50px;
+}
+
+.context {
+    line-height: 1px;
+    font-size: 20px;
+}
+
+.context a {
+    color: #181818;
+    background-color: #ffffff;
+    text-decoration: none;
+}
+
+#reset-button-container {
+    position: relative;
+    height: var(--button-size);
+}
+
+#reset-button {
+    position: absolute;
+    background-color: #ff1f1f;
+    background-image: url(../icons/trash.png);
+    background-size: calc(var(--button-size)/1.1);
+    background-position: center;
+    background-repeat: no-repeat;
+    width: var(--button-size);
+    height: var(--button-size);
+    border-radius: var(--border-roundness);
+    -webkit-border-radius: var(--border-roundness);
+    -moz-border-radius: var(--border-roundness);
+    -ms-border-radius: var(--border-roundness);
+    -o-border-radius: var(--border-roundness);
+}
+
+#reset-button-text {
+    position: absolute;
+    left: calc(var(--button-size) + 10px);
+    top: calc(var(--button-size) / 2);
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+}
+
+#confirmation-background {
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    top: 0%;
+    left: 0%;
+    height: calc(var(--confirmation-opacity) * 100%);
+    width: calc(var(--confirmation-opacity) * 100%);
+    opacity: var(--confirmation-opacity);
+    background-color: #54545454;
+    filter: blur(10px);
+    -webkit-filter: blur(10px);
+}
+
+#reset-confirmation-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: calc(var(--confirmation-opacity) * 50%);
+    height: calc(var(--confirmation-opacity) * 20%);
+    opacity: var(--confirmation-opacity);
+    border: 3px solid #ffffff;
+    background-color: #54545454;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+}
+
+#confirm-reset {
+    position: fixed;
+    top: 50%;
+    left: 0%;
+    width: 50%;
+    height: 50%;
+    background-color: #ff1f1f;
+}
+
+#confirm-reset p {
+    position: relative;
+    color: #000000;
+    font-size: 25px;
+    top: 12.5%;
+    left: 50%;
+    width: 50%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+}
+
+#cancel-reset {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 50%;
+    background-color: #1fff1f;
+}
+
+#cancel-reset p {
+    position: relative;
+    color: #000000;
+    font-size: 25px;
+    top: 12.5%;
+    left: 50%;
+    width: 50%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+}
+
+#confirmation-reset {
+    position: fixed;
+    top: 0%;
+    left: 10%;
+    width: 80%;
+    height: 50%;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+#home {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    width: var(--button-size);
+    height: var(--button-size);
+    background-color: #aaaaaa;
+    background-image: url(../icons/home.png);
+    background-size: calc(var(--button-size)/1.1);
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    filter: invert();
+    -webkit-filter: invert();
+    border-radius: var(--border-roundness);
+    -webkit-border-radius: var(--border-roundness);
+    -moz-border-radius: var(--border-roundness);
+    -ms-border-radius: var(--border-roundness);
+    -o-border-radius: var(--border-roundness);
+}
