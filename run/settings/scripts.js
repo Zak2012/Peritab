@@ -23,10 +23,9 @@ function check_confirmation() {
 function confirmReset() {
     root_set("--confirmation-opacity", "0")
     confirmation = false;
-    sessionStorage.setItem("HighScore", "0");
-    sessionStorage.setItem("Score", "0");
-    localStorage.setItem("HighScore", "0");
-    localStorage.setItem("Score", "0");
+    localStorage.clear()
+    sessionStorage.clear()
+    window.location.reload()
 }
 
 function cancelReset() {

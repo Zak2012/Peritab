@@ -1,13 +1,15 @@
 var scoreObj = 0;
 var highScoreObj = 0;
-var root = 0;
 var menuBtnObj = 0;
+var frameObj = 0;
+var root = 0;
 
 var isMenuOpen = 0;
-var score = sessionStorage.getItem("Score");
-var highScore = sessionStorage.getItem("HighScore");
+var isLeaving = 0;
+var score = localStorage.getItem("Score");
+var highScore = localStorage.getItem("HighScore");
 
-const MENU = ["/run/settings", "/run/info"]
+const MENU = ["/run/settings", "/run/info", "/run/game"]
 
 function pad(num) {
     var s = "00000000" + num;
@@ -38,42 +40,51 @@ function option() {
 
 function optionChild(index) {
     if (isMenuOpen) {
-        localStorage.setItem("isLeaving", "false");
-        if (index < 2) {
-            window.location.href = MENU[index];
-        } else {
-            window.location.reload()
+        isLeaving = false;
+        switch (index) {
+            case 0:
+                window.location.href = MENU[0];
+                break;
+            case 1:
+                window.location.href = MENU[1];
+                break;
+            case 2:
+                frameObj.src = MENU[2];
+                break;
+            case 3:
+                window.location.reload()
+                break;
         }
+
     }
 }
 
 window.onbeforeunload = function() {
-    localStorage.setItem("HighScore", sessionStorage.getItem("HighScore"))
-
-    if (localStorage.getItem("isLeaving") === "true") {
+    if (isLeaving) {
         localStorage.setItem("Score", "0");
-    } else {
-        localStorage.setItem("Score", sessionStorage.getItem("Score"))
     }
 }
 
 function start() {
+    isLeaving = true;
+    frameObj = document.getElementById("game");
     scoreObj = document.getElementById("score");
     highScoreObj = document.getElementById("high-score");
-    root = document.querySelector(":root");
     menuBtnObj = document.getElementById("menu-button");
+    root = document.querySelector(":root");
     localStorage.setItem("isLeaving", "true");
 
-    sessionStorage.setItem("Score", localStorage.getItem("Score"))
+    highScore = localStorage.getItem("HighScore");
+    score = localStorage.getItem("Score");
 
-    if (localStorage.getItem("HighScore") === null) {
-        localStorage.setItem("HighScore", "0");
-        sessionStorage.setItem("HighScore", "0");
-    } else {
-        sessionStorage.setItem("HighScore", localStorage.getItem("HighScore"));
+    if (score === null || highScore === null) {
+        localStorage.setItem("HighScore", 0)
+        localStorage.setItem("Score", 0)
     }
-    highScore = sessionStorage.getItem("HighScore");
-    score = sessionStorage.getItem("Score");
+
+    highScore = localStorage.getItem("HighScore");
+    score = localStorage.getItem("Score");
+
 
     highScoreObj.innerHTML = `High Score: ${pad(highScore)}`;
     scoreObj.innerHTML = `Score: ${pad(score)}`;
@@ -90,15 +101,15 @@ function start() {
 }
 
 function update() {
-    if (score != sessionStorage.getItem("Score")) {
-        score = sessionStorage.getItem("Score");
+    if (score != localStorage.getItem("Score")) {
+        score = localStorage.getItem("Score");
         scoreObj.innerHTML = `Score: ${pad(score)}`;
         if (score >= highScore) {
-            sessionStorage.setItem("HighScore", score.toString())
+            localStorage.setItem("HighScore", score)
         }
     }
-    if (highScore != sessionStorage.getItem("HighScore")) {
-        highScore = sessionStorage.getItem("HighScore");
+    if (highScore != localStorage.getItem("HighScore")) {
+        highScore = localStorage.getItem("HighScore");
         highScoreObj.innerHTML = `High Score: ${pad(highScore)}`;
 
 

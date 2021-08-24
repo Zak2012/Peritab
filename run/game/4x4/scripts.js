@@ -1,12 +1,15 @@
-var cardDoc = arrayInit(4);
+var cardDoc = arrayInit(16);
 var cardFlipped = arrayInit(cardDoc.length, false);
 var cardFinished = arrayInit(cardDoc.length, false);
 var isFinish = 0;
 var cardValue = arrayInit(cardDoc.length);
 var cardBg = arrayInit(cardDoc.lenght);
-var cardMatchBg = arrayInit(cardDoc.lenght);
+var cardMatchBg = arrayInit(cardDoc.lenght)
 var cardDefaultBg = "#ffffff";
-var cardFlipBg = ["#ff0000", "#00ff00", "#ff0000", "#00ff00"];
+var cardFlipBg = [
+    "#ff0000", "#00ff00", "#0000ff", "#ffff00", "#00ffff", "#ff00ff", "#44ffaa", "#aa44ff",
+    "#ff0000", "#00ff00", "#0000ff", "#ffff00", "#00ffff", "#ff00ff", "#44ffaa", "#aa44ff"
+];
 var score = localStorage.getItem("Score");
 var lastCard = null;
 var curCard = 0;
@@ -92,7 +95,6 @@ async function reset() {
     isFinish = 0;
     cardFinished = arrayInit(cardDoc.length, false);
     cardFlipped = arrayInit(cardDoc.length, false);
-    let temp = localStorage.getItem("Score")
     localStorage.setItem("Score", Number(localStorage.getItem("Score")))
     await sleep(100);
     for (let i = 0; i < cardDoc.length; i++) {

@@ -121,6 +121,29 @@ body {
     width: var(--menu-size);
     height: var(--menu-size);
     background-color: var(--option-child-color-1);
+    background-image: url(./icons/menu.png);
+    background-size: var(--menu-size);
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    filter: invert();
+    -webkit-filter: invert();
+    border-radius: var(--border-roundness);
+    -webkit-border-radius: var(--border-roundness);
+    -moz-border-radius: var(--border-roundness);
+    -ms-border-radius: var(--border-roundness);
+    -o-border-radius: var(--border-roundness);
+}
+
+#option-4 {
+    position: absolute;
+    left: calc(var(--menu-size) * 4);
+    width: var(--menu-size);
+    height: var(--menu-size);
+    background-color: var(--option-child-color-2);
     background-image: url(./icons/reload.png);
     background-size: calc(var(--menu-size)/2);
     background-position: center;
