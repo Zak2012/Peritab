@@ -30,7 +30,7 @@ body {
     width: var(--button-size);
     height: var(--button-size);
     background-color: #aaaaaa;
-    background-image: url(../icons/home.png);
+    background-image: url(/run/icons/home.png);
     background-size: calc(var(--button-size)/1.1);
     background-position: center;
     background-repeat: no-repeat;

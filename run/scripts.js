@@ -7,7 +7,7 @@ var isMenuOpen = 0;
 var score = sessionStorage.getItem("Score");
 var highScore = sessionStorage.getItem("HighScore");
 
-const MENU = ["./settings", "./info"]
+const MENU = ["/run/settings", "/run/info"]
 
 function pad(num) {
     var s = "00000000" + num;
@@ -40,9 +40,9 @@ function optionChild(index) {
     if (isMenuOpen) {
         localStorage.setItem("isLeaving", "false");
         if (index < 2) {
-            location.href = MENU[index];
+            window.location.href = MENU[index];
         } else {
-            location.reload()
+            window.location.reload()
         }
     }
 }
