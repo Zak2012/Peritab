@@ -11,19 +11,19 @@
 </head>
 
 <body onload="start()">
-    <span id="menu-button" onclick="option()"></span>
+    <span class="option" id="menu-button" onclick="option()"></span>
     <div class="menu">
-        <span id="option-1" onclick="optionChild(0)"></span>
-        <span id="option-2" onclick="optionChild(1)"></span>
-        <span id="option-3" onclick="optionChild(2)"></span>
-        <span id="option-4" onclick="optionChild(3)"></span>
+        <span class="option" id="option-1" onclick="optionChild(0)"></span>
+        <span class="option" id="option-2" onclick="optionChild(1)"></span>
+        <span class="option" id="option-3" onclick="optionChild(2)"></span>
+        <span class="option" id="option-4" onclick="optionChild(3)"></span>
 
     </div>
     <div class="game-container">
         <span id="title">Peritab</span>
         <span id="score">Score: 00000000</span>
         <span id="high-score">High Score: 00000000</span>
-        <iframe title="game" id="game" src="/run/game/" type="text/html"></iframe>
+        <iframe title="game" id="game" src="/run/game" type="text/html"></iframe>
     </div>
 </body>
 

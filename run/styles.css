@@ -52,16 +52,23 @@ body {
     position: fixed;
     left: 0px;
     bottom: 0px;
-    height: var(--menu-size);
-    width: var(--menu-size);
-    color: #ffffff;
+    color: #000000;
     background-color: var(--menu-color);
     font-weight: bold;
+    font-size: var(--menu-size);
+}
+
+.option {
+    height: var(--menu-size);
+    width: var(--menu-size);
+    background-position: center;
+    background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: var(--menu-size);
-    z-index: 6;
+    z-index: 5;
+    filter: invert();
+    -webkit-filter: invert();
     border-radius: var(--border-roundness);
     -webkit-border-radius: var(--border-roundness);
     -moz-border-radius: var(--border-roundness);
@@ -72,93 +79,33 @@ body {
 #option-1 {
     position: absolute;
     left: calc(var(--menu-size) * 1);
-    width: var(--menu-size);
-    height: var(--menu-size);
     background-color: var(--option-child-color-1);
     background-image: url(./icons/settings.png);
     background-size: calc(var(--menu-size)/2);
-    background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 5;
-    filter: invert();
-    -webkit-filter: invert();
-    border-radius: var(--border-roundness);
-    -webkit-border-radius: var(--border-roundness);
-    -moz-border-radius: var(--border-roundness);
-    -ms-border-radius: var(--border-roundness);
-    -o-border-radius: var(--border-roundness);
 }
 
 #option-2 {
     position: absolute;
     left: calc(var(--menu-size) * 2);
-    width: var(--menu-size);
-    height: var(--menu-size);
     background-color: var(--option-child-color-2);
     background-image: url(./icons/more.png);
     background-size: calc(var(--menu-size)/2);
-    background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 5;
-    filter: invert();
-    -webkit-filter: invert();
-    border-radius: var(--border-roundness);
-    -webkit-border-radius: var(--border-roundness);
-    -moz-border-radius: var(--border-roundness);
-    -ms-border-radius: var(--border-roundness);
-    -o-border-radius: var(--border-roundness);
 }
 
 #option-3 {
     position: absolute;
     left: calc(var(--menu-size) * 3);
-    width: var(--menu-size);
-    height: var(--menu-size);
     background-color: var(--option-child-color-1);
     background-image: url(./icons/menu.png);
     background-size: var(--menu-size);
-    background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 5;
-    filter: invert();
-    -webkit-filter: invert();
-    border-radius: var(--border-roundness);
-    -webkit-border-radius: var(--border-roundness);
-    -moz-border-radius: var(--border-roundness);
-    -ms-border-radius: var(--border-roundness);
-    -o-border-radius: var(--border-roundness);
 }
 
 #option-4 {
     position: absolute;
     left: calc(var(--menu-size) * 4);
-    width: var(--menu-size);
-    height: var(--menu-size);
     background-color: var(--option-child-color-2);
     background-image: url(./icons/reload.png);
     background-size: calc(var(--menu-size)/2);
-    background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 5;
-    filter: invert();
-    -webkit-filter: invert();
-    border-radius: var(--border-roundness);
-    -webkit-border-radius: var(--border-roundness);
-    -moz-border-radius: var(--border-roundness);
-    -ms-border-radius: var(--border-roundness);
-    -o-border-radius: var(--border-roundness);
 }
 
 #title {

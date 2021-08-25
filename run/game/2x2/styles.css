@@ -19,44 +19,24 @@ body {
 
 #card-0 {
     position: absolute;
-    top: 28%;
-    left: 28%;
-    transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
+    top: 6%;
+    left: 6%;
 }
 
 #card-1 {
     position: absolute;
-    top: 28%;
-    right: 28%;
-    transform: translate(50%, -50%);
-    -webkit-transform: translate(50%, -50%);
-    -moz-transform: translate(50%, -50%);
-    -ms-transform: translate(50%, -50%);
-    -o-transform: translate(50%, -50%);
+    top: 6%;
+    right: 6%;
 }
 
 #card-2 {
     position: absolute;
-    bottom: 28%;
-    left: 28%;
-    transform: translate(-50%, 50%);
-    -webkit-transform: translate(-50%, 50%);
-    -moz-transform: translate(-50%, 50%);
-    -ms-transform: translate(-50%, 50%);
-    -o-transform: translate(-50%, 50%);
+    bottom: 6%;
+    left: 6%;
 }
 
 #card-3 {
     position: absolute;
-    bottom: 28%;
-    right: 28%;
-    transform: translate(50%, 50%);
-    -webkit-transform: translate(50%, 50%);
-    -moz-transform: translate(50%, 50%);
-    -ms-transform: translate(50%, 50%);
-    -o-transform: translate(50%, 50%);
+    bottom: 6%;
+    right: 6%;
 }

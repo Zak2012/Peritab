@@ -43,10 +43,10 @@ function optionChild(index) {
         isLeaving = false;
         switch (index) {
             case 0:
-                window.location.href = MENU[0];
+                sessionStorage.setItem("loc", MENU[0])
                 break;
             case 1:
-                window.location.href = MENU[1];
+                sessionStorage.setItem("loc", MENU[1])
                 break;
             case 2:
                 frameObj.src = MENU[2];
@@ -55,7 +55,9 @@ function optionChild(index) {
                 window.location.reload()
                 break;
         }
-
+        root_set("--option-opacity", "0");
+        isMenuOpen = false
+        menuBtnObj.innerHTML = "+";
     }
 }
 
@@ -104,18 +106,14 @@ function update() {
     if (score != localStorage.getItem("Score")) {
         score = localStorage.getItem("Score");
         scoreObj.innerHTML = `Score: ${pad(score)}`;
-        if (score >= highScore) {
-            localStorage.setItem("HighScore", score)
-        }
     }
     if (highScore != localStorage.getItem("HighScore")) {
         highScore = localStorage.getItem("HighScore");
         highScoreObj.innerHTML = `High Score: ${pad(highScore)}`;
-
-
     }
-
-
+    if (score >= highScore) {
+        localStorage.setItem("HighScore", score)
+    }
 
     setTimeout(update, (1 / 60 * 1000));
 }

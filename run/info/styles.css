@@ -8,13 +8,13 @@ body {
 }
 
 .title {
-    font-size: 35px;
-    line-height: 50px;
+    font-size: 2em;
+    line-height: 2em;
 }
 
 .context {
-    line-height: 1px;
-    font-size: 20px;
+    line-height: 1em;
+    font-size: 0.8em;
 }
 
 .context a {

@@ -1,10 +1,10 @@
-var cardDoc = arrayInit(16);
-var cardFlipped = arrayInit(cardDoc.length, false);
-var cardFinished = arrayInit(cardDoc.length, false);
+var cardObj = arrayInit(16);
+var cardFlipped = arrayInit(cardObj.length, false);
+var cardFinished = arrayInit(cardObj.length, false);
 var isFinish = 0;
-var cardValue = arrayInit(cardDoc.length);
-var cardBg = arrayInit(cardDoc.lenght);
-var cardMatchBg = arrayInit(cardDoc.lenght)
+var cardValue = arrayInit(cardObj.length);
+var cardBg = arrayInit(cardObj.lenght);
+var cardMatchBg = arrayInit(cardObj.lenght)
 var cardDefaultBg = "#ffffff";
 var cardFlipBg = [
     "#ff0000", "#00ff00", "#0000ff", "#ffff00", "#00ffff", "#ff00ff", "#44ffaa", "#aa44ff",
@@ -55,7 +55,7 @@ async function checkCard() {
         if (cdVal0 === cdVal1) {
             for (let i = 0; i < 2; i++) {
                 cardFlipped[cdIndex[i]] = true;
-                cardDoc[cdIndex[i]].style.opacity = 0;
+                cardObj[cdIndex[i]].style.opacity = 0;
                 cardFinished[cdIndex[i]] = true;
                 isFinish++;
             }
@@ -93,23 +93,23 @@ async function reset() {
     randomizeCard();
 
     isFinish = 0;
-    cardFinished = arrayInit(cardDoc.length, false);
-    cardFlipped = arrayInit(cardDoc.length, false);
+    cardFinished = arrayInit(cardObj.length, false);
+    cardFlipped = arrayInit(cardObj.length, false);
     localStorage.setItem("Score", Number(localStorage.getItem("Score")))
     await sleep(100);
-    for (let i = 0; i < cardDoc.length; i++) {
-        cardDoc[i].style.opacity = 1;
+    for (let i = 0; i < cardObj.length; i++) {
+        cardObj[i].style.opacity = 1;
     }
 }
 
 function randomizeCard() {
-    let cardTempIndex = arrayInit(cardDoc.length);
+    let cardTempIndex = arrayInit(cardObj.length);
 
-    for (let i = 0; i < cardDoc.length; i++) {
+    for (let i = 0; i < cardObj.length; i++) {
         cardTempIndex[i] = i;
     }
 
-    for (let i = 0; i < cardDoc.length; i++) {
+    for (let i = 0; i < cardObj.length; i++) {
         let temp = randRange(0, cardTempIndex.length - 1);
         cardBg[i] = cardTempIndex[temp];
         cardValue[i] = cardMatchBg[cardTempIndex[temp]]
@@ -118,24 +118,24 @@ function randomizeCard() {
 }
 
 function start() {
-    for (let i = 0; i < cardDoc.length; i++) {
-        cardMatchBg[i] = i % (cardDoc.length / 2);
+    for (let i = 0; i < cardObj.length; i++) {
+        cardMatchBg[i] = i % (cardObj.length / 2);
     }
-    for (let i = 0; i < cardDoc.length; i++) {
-        cardDoc[i] = document.getElementById(`card-${i}`);
+    for (let i = 0; i < cardObj.length; i++) {
+        cardObj[i] = document.getElementById(`card-${i}`);
     }
     randomizeCard();
     update();
 }
 async function update() {
-    for (let i = 0; i < cardDoc.length; i++) {
+    for (let i = 0; i < cardObj.length; i++) {
         if (cardFlipped[i]) {
-            cardDoc[i].style.backgroundColor = cardFlipBg[cardBg[i]];
+            cardObj[i].style.backgroundColor = cardFlipBg[cardBg[i]];
         } else {
-            cardDoc[i].style.backgroundColor = cardDefaultBg;
+            cardObj[i].style.backgroundColor = cardDefaultBg;
         }
     }
-    if (isFinish == cardDoc.length) {
+    if (isFinish == cardObj.length) {
         await reset();
     }
 

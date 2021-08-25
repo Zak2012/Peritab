@@ -1,3 +1,3 @@
 function home() {
-    window.history.back();
+    sessionStorage.setItem("loc", "/run");
 }

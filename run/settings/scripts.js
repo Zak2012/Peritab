@@ -12,7 +12,7 @@ function root_set(property, value) {
 }
 
 function home() {
-    window.history.back();
+    sessionStorage.setItem("loc", "/run");
 }
 
 function check_confirmation() {
@@ -26,6 +26,7 @@ function confirmReset() {
     localStorage.clear()
     sessionStorage.clear()
     window.location.reload()
+    sessionStorage.setItem("loc", "/run");
 }
 
 function cancelReset() {
