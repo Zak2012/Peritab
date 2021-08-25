@@ -12,7 +12,7 @@ function root_set(property, value) {
 }
 
 function home() {
-    sessionStorage.setItem("loc", "/run");
+    sessionStorage.setItem("loc", 0);
 }
 
 function check_confirmation() {
