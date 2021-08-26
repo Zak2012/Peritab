@@ -81,7 +81,7 @@ body {
     position: absolute;
     left: calc(var(--menu-size) * 1);
     background-color: var(--option-child-color-1);
-    background-image: url(/run/icons/settings.png);
+    background-image: url(./icons/settings.png);
     background-size: calc(var(--menu-size)/1.5);
 }
 
@@ -89,7 +89,7 @@ body {
     position: absolute;
     left: calc(var(--menu-size) * 2);
     background-color: var(--option-child-color-2);
-    background-image: url(/run/icons/more.png);
+    background-image: url(./icons/more.png);
     background-size: calc(var(--menu-size)/1.5);
 }
 
@@ -97,7 +97,7 @@ body {
     position: absolute;
     left: calc(var(--menu-size) * 3);
     background-color: var(--option-child-color-1);
-    background-image: url(/run/icons/home.png);
+    background-image: url(./icons/home.png);
     background-size: calc(var(--menu-size)/1.5);
 }
 
@@ -105,7 +105,7 @@ body {
     position: absolute;
     left: calc(var(--menu-size) * 4);
     background-color: var(--option-child-color-2);
-    background-image: url(/run/icons/reload.png);
+    background-image: url(./icons/reload.png);
     background-size: calc(var(--menu-size)/1.5);
 }
 

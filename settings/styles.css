@@ -1,7 +1,6 @@
 :root {
     --button-size: 50px;
     --border-roundness: 15%;
-    --confirmation-opacity: 0;
 }
 
 body {
@@ -16,7 +15,7 @@ body {
 
 .context {
     line-height: 1em;
-    font-size: 0.8em;
+    font-size: 1em;
 }
 
 .context a {
@@ -57,88 +56,6 @@ body {
     -o-transform: translateY(-50%);
 }
 
-#confirmation-background {
-    position: fixed;
-    margin: 0;
-    padding: 0;
-    top: 0%;
-    left: 0%;
-    height: calc(var(--confirmation-opacity) * 100%);
-    width: calc(var(--confirmation-opacity) * 100%);
-    opacity: var(--confirmation-opacity);
-    background-color: #54545454;
-    filter: blur(10px);
-    -webkit-filter: blur(10px);
-}
-
-#reset-confirmation-container {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: calc(var(--confirmation-opacity) * 50%);
-    height: calc(var(--confirmation-opacity) * 20%);
-    opacity: var(--confirmation-opacity);
-    border: 3px solid #ffffff;
-    background-color: #54545454;
-    transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
-}
-
-#confirm-reset {
-    position: fixed;
-    top: 50%;
-    left: 0%;
-    width: 50%;
-    height: 50%;
-    background-color: #ff1f1f;
-    display: flex;
-    justify-content: center;
-    text-align: center
-}
-
-#confirm-reset p {
-    position: relative;
-    color: #000000;
-    font-size: 1.25em;
-}
-
-#cancel-reset {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 50%;
-    height: 50%;
-    background-color: #1fff1f;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-}
-
-#cancel-reset p {
-    position: relative;
-    color: #000000;
-    font-size: 1.25em;
-}
-
-#confirmation-reset {
-    position: fixed;
-    top: 0%;
-    left: 0%;
-    width: 100%;
-    height: 50%;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-}
-
-#confirmation-reset p {
-    position: relative;
-    font-size: 1.5em;
-}
-
 #back {
     position: fixed;
     bottom: 0px;
@@ -146,7 +63,7 @@ body {
     width: var(--button-size);
     height: var(--button-size);
     background-color: #aaaaaa;
-    background-image: url(/run/icons/back.png);
+    background-image: url(../icons/back.png);
     background-size: calc(var(--button-size)/1.1);
     background-position: center;
     background-repeat: no-repeat;

@@ -13,8 +13,8 @@ body {
 }
 
 .context {
-    line-height: 1.2em;
-    font-size: 0.8em;
+    line-height: 1em;
+    font-size: 1em;
 }
 
 .context a {
@@ -30,7 +30,7 @@ body {
     width: var(--button-size);
     height: var(--button-size);
     background-color: #aaaaaa;
-    background-image: url(/run/icons/back.png);
+    background-image: url(../icons/back.png);
     background-size: calc(var(--button-size)/1.1);
     background-position: center;
     background-repeat: no-repeat;

@@ -16,23 +16,15 @@ function back() {
 }
 
 function check_confirmation() {
-    root_set("--confirmation-opacity", "1");
-    confirmation = true;
+    let reset = confirm("You sure you want to reset all? \n\nCaution: This action cannot be undone");
+    if (reset) {
+        localStorage.clear();
+        sessionStorage.clear();
+        window.location.reload()
+        window.location.href = "/"
+    }
 }
 
-function confirmReset() {
-    root_set("--confirmation-opacity", "0");
-    confirmation = false;
-    localStorage.clear();
-    sessionStorage.clear();
-    window.location.reload()
-    window.history.back();
-}
-
-function cancelReset() {
-    root_set("--confirmation-opacity", "0");
-    confirmation = false;
-}
 
 function start() {
     root = document.querySelector(":root");

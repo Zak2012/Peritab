@@ -9,7 +9,7 @@ var isLeaving = 0;
 var score = localStorage.getItem("Score");
 var highScore = localStorage.getItem("HighScore");
 
-const MENU = ["/run/settings", "/run/info", "/run/game"]
+const MENU = ["./settings", "./info", "./game"]
 
 function pad(num) {
     var s = "00000000" + num;
@@ -29,11 +29,11 @@ function option() {
     if (isMenuOpen) {
         root_set("--option-opacity", "0");
         isMenuOpen = false
-        menuBtnObj.style.backgroundImage = "url('/run/icons/right.png')";
+        menuBtnObj.style.backgroundImage = "url('./icons/right.png')";
     } else {
         root_set("--option-opacity", "1");
         isMenuOpen = true
-        menuBtnObj.style.backgroundImage = "url('/run/icons/left.png')";
+        menuBtnObj.style.backgroundImage = "url('./icons/left.png')";
     }
 
 }
@@ -57,7 +57,7 @@ function optionChild(index) {
         }
         root_set("--option-opacity", "0");
         isMenuOpen = false
-        menuBtnObj.style.backgroundImage = "url('/run/icons/right.png')";
+        menuBtnObj.style.backgroundImage = "url('./icons/right.png')";
     }
 }
 
@@ -95,10 +95,10 @@ function start() {
     if (optionOpacity === "1") {
         isMenuOpen = true;
         menuBtnObj.style.ba
-        menuBtnObj.style.backgroundImage = "url('/run/icons/left.png')";
+        menuBtnObj.style.backgroundImage = "url('./icons/left.png')";
     } else {
         isMenuOpen = false;
-        menuBtnObj.style.backgroundImage = "url('/run/icons/right.png')";
+        menuBtnObj.style.backgroundImage = "url('./icons/right.png')";
     }
 
     update();
