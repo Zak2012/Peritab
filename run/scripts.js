@@ -29,11 +29,11 @@ function option() {
     if (isMenuOpen) {
         root_set("--option-opacity", "0");
         isMenuOpen = false
-        menuBtnObj.innerHTML = "+";
+        menuBtnObj.style.backgroundImage = "url('/run/icons/right.png')";
     } else {
         root_set("--option-opacity", "1");
         isMenuOpen = true
-        menuBtnObj.innerHTML = "~";
+        menuBtnObj.style.backgroundImage = "url('/run/icons/left.png')";
     }
 
 }
@@ -43,10 +43,10 @@ function optionChild(index) {
         isLeaving = false;
         switch (index) {
             case 0:
-                sessionStorage.setItem("loc", MENU[0])
+                window.location.href = MENU[0];
                 break;
             case 1:
-                sessionStorage.setItem("loc", MENU[1])
+                window.location.href = MENU[1];
                 break;
             case 2:
                 frameObj.src = MENU[2];
@@ -57,7 +57,7 @@ function optionChild(index) {
         }
         root_set("--option-opacity", "0");
         isMenuOpen = false
-        menuBtnObj.innerHTML = "+";
+        menuBtnObj.style.backgroundImage = "url('/run/icons/right.png')";
     }
 }
 
@@ -94,11 +94,13 @@ function start() {
     let optionOpacity = root_get("--option-opacity");
     if (optionOpacity === "1") {
         isMenuOpen = true;
-        menuBtnObj.innerHTML = "~";
+        menuBtnObj.style.ba
+        menuBtnObj.style.backgroundImage = "url('/run/icons/left.png')";
     } else {
         isMenuOpen = false;
-        menuBtnObj.innerHTML = "+";
+        menuBtnObj.style.backgroundImage = "url('/run/icons/right.png')";
     }
+
     update();
 }
 

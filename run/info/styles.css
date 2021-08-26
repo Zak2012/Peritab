@@ -13,7 +13,7 @@ body {
 }
 
 .context {
-    line-height: 1em;
+    line-height: 1.2em;
     font-size: 0.8em;
 }
 
@@ -23,14 +23,14 @@ body {
     text-decoration: none;
 }
 
-#home {
+#back {
     position: fixed;
     bottom: 0px;
     right: 0px;
     width: var(--button-size);
     height: var(--button-size);
     background-color: #aaaaaa;
-    background-image: url(/run/icons/home.png);
+    background-image: url(/run/icons/back.png);
     background-size: calc(var(--button-size)/1.1);
     background-position: center;
     background-repeat: no-repeat;

@@ -11,26 +11,26 @@ function root_set(property, value) {
     root.style.setProperty(property, value);
 }
 
-function home() {
-    sessionStorage.setItem("loc", "/run");
+function back() {
+    window.history.back();
 }
 
 function check_confirmation() {
-    root_set("--confirmation-opacity", "1")
+    root_set("--confirmation-opacity", "1");
     confirmation = true;
 }
 
 function confirmReset() {
-    root_set("--confirmation-opacity", "0")
+    root_set("--confirmation-opacity", "0");
     confirmation = false;
-    localStorage.clear()
-    sessionStorage.clear()
+    localStorage.clear();
+    sessionStorage.clear();
     window.location.reload()
-    sessionStorage.setItem("loc", "/run");
+    window.history.back();
 }
 
 function cancelReset() {
-    root_set("--confirmation-opacity", "0")
+    root_set("--confirmation-opacity", "0");
     confirmation = false;
 }
 
