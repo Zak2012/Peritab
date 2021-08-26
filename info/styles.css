@@ -10,20 +10,25 @@ body {
 .title {
     font-size: 2em;
     line-height: 2em;
+    cursor: text;
 }
 
 .context {
     line-height: 1em;
     font-size: 1em;
+    cursor: text;
 }
 
 .context a {
+    cursor: pointer;
     color: #181818;
     background-color: #ffffff;
     text-decoration: none;
+    user-select: none;
 }
 
 #back {
+    cursor: pointer;
     position: fixed;
     bottom: 0px;
     right: 0px;

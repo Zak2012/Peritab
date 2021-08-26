@@ -19,6 +19,7 @@
 body {
     background-color: #181818;
     color: #ffffff;
+    user-select: none;
 }
 
 .game-container {
@@ -49,6 +50,7 @@ body {
 }
 
 #menu-button {
+    cursor: pointer;
     position: fixed;
     left: 0px;
     bottom: 0px;

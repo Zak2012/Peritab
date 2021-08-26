@@ -52,7 +52,7 @@ function optionChild(index) {
                 frameObj.src = MENU[2];
                 break;
             case 3:
-                window.location.reload()
+                window.location.reload();
                 break;
         }
         root_set("--option-opacity", "0");
@@ -67,7 +67,29 @@ window.onbeforeunload = function() {
     }
 }
 
-function start() {
+async function start() {
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/service-worker.js')
+    }
+    /*if ('caches' in window) {
+        const cache = await caches.open('cache');
+        const cacheitem = [
+            "/index.html",
+            "/styles.css",
+            "/scripts.js",
+            "/service-worker.js",
+            "/manifest.json",
+            "/game/index.html",
+            "/game/styles.css",
+            "/game/scripts.js",
+            "/game/2x2/index.html",
+            "/game/2x2/styles.css",
+            "/game/2x2/scripts.js"
+        ]
+        cache.addAll(cacheitem)
+
+    }*/
+
     isLeaving = true;
     frameObj = document.getElementById("game");
     scoreObj = document.getElementById("score");
@@ -79,7 +101,7 @@ function start() {
     highScore = localStorage.getItem("HighScore");
     score = localStorage.getItem("Score");
 
-    if (score === null || highScore === null) {
+    if (score == null || highScore == null) {
         localStorage.setItem("HighScore", 0)
         localStorage.setItem("Score", 0)
     }

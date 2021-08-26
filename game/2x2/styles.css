@@ -3,6 +3,7 @@ body {
 }
 
 .card {
+    cursor: pointer;
     width: 42%;
     height: 42%;
     background-color: #ffffff;

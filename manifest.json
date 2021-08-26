@@ -1,0 +1,22 @@
+{
+    "name": "Peritab",
+    "short_name": "Peritab",
+    "start_url": "/",
+    "icons": [{
+            "src": "logos/manifest-icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable any"
+        },
+        {
+            "src": "logos/manifest-icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable any"
+        }
+    ],
+    "theme_color": "#ffffff",
+    "background_color": "#181818",
+    "display": "fullscreen",
+    "orientation": "portrait"
+}

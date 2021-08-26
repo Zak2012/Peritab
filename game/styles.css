@@ -5,6 +5,8 @@
 body {
     background-color: #181818;
     color: #ffffff;
+    user-select: none;
+    cursor: default;
 }
 
 #a2x2 {
@@ -13,6 +15,7 @@ body {
     left: 25%;
     width: 40%;
     height: 40%;
+    cursor: pointer;
     background-color: #3333aa;
     transform: translate(-50%, -50%);
     -webkit-transform: translate(-50%, -50%);
@@ -44,6 +47,7 @@ body {
     left: 75%;
     width: 40%;
     height: 40%;
+    cursor: pointer;
     background-color: #3333aa;
     transform: translate(-50%, -50%);
     -webkit-transform: translate(-50%, -50%);
