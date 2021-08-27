@@ -10,6 +10,7 @@ body {
 }
 
 #a2x2 {
+    color: #ffffff;
     position: absolute;
     top: 50%;
     left: 25%;
@@ -42,6 +43,7 @@ body {
 }
 
 #a4x4 {
+    color: #ffffff;
     position: absolute;
     top: 50%;
     left: 75%;

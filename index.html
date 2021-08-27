@@ -43,6 +43,22 @@
     <link rel="shortcut icon" type="image/png" href="/favicon.png" />
     <script src="/scripts.js"></script>
     <link rel="manifest" href="/manifest.json">
+
+    <link rel="prefetch" href="/settings/">
+    <link rel="prefetch" href="/settings/styles.css">
+    <link rel="prefetch" href="/settings/scripts.js">
+
+    <link rel="prefetch" href="/icons/back.png">
+    <link rel="prefetch" href="/icons/download.png">
+    <link rel="prefetch" href="/icons/home.png">
+    <link rel="prefetch" href="/icons/left.png">
+    <link rel="prefetch" href="/icons/reload.png">
+    <link rel="prefetch" href="/icons/right.png">
+    <link rel="prefetch" href="/icons/settings.png">
+    <link rel="prefetch" href="/icons/trash.png">
+
+
+
     <title>Peritab</title>
 </head>
 
@@ -50,9 +66,9 @@
     <span class="option" id="menu-button" onclick="option()"></span>
     <div class="menu">
         <span class="option" id="option-1" onclick="optionChild(0)"></span>
+        <!--<span class="option" id="option-2" onclick="optionChild(1)"></span>-->
         <span class="option" id="option-2" onclick="optionChild(1)"></span>
-        <span class="option" id="option-3" onclick="optionChild(2)"></span>
-        <span class="option" id="option-4" onclick="optionChild(3)"></span>
+        <!--<span class="option" id="option-3" onclick="optionChild(3)"></span>-->
 
     </div>
     <div class="game-container">
@@ -60,6 +76,10 @@
         <span id="score">Score: 00000000</span>
         <span id="high-score">High Score: 00000000</span>
         <iframe title="game" id="game" src="/game" type="text/html"></iframe>
+    </div>
+    <div class="info">
+        <a id="github" href="https://github.com/gsproduction727/Peritab" target="_blank">Github</a>
+        <a id="info-github" href="https://github.com/gsproduction727/Peritab/blob/main/README.md" target="_blank">Info</a>
     </div>
 </body>
 

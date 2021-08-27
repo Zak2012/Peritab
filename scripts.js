@@ -6,6 +6,7 @@ var root = 0;
 
 var isMenuOpen = 0;
 var isLeaving = 0;
+var isOnline = 0;
 var score = localStorage.getItem("Score");
 var highScore = localStorage.getItem("HighScore");
 
@@ -46,13 +47,11 @@ function optionChild(index) {
                 window.location.href = MENU[0];
                 break;
             case 1:
-                window.location.href = MENU[1];
+                window.location.reload();
                 break;
             case 2:
-                frameObj.src = MENU[2];
                 break;
             case 3:
-                window.location.reload();
                 break;
         }
         root_set("--option-opacity", "0");
@@ -61,34 +60,32 @@ function optionChild(index) {
     }
 }
 
+function loadCache() {
+    //window.location.href = "/icons"
+}
+
 window.onbeforeunload = function() {
     if (isLeaving) {
         localStorage.setItem("Score", "0");
     }
 }
 
+window.addEventListener('offline', function(e) { isOnline = false; });
+
+window.addEventListener('online', function(e) { isOnline = true; });
+
 async function start() {
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/service-worker.js')
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register("/service-worker.js").then(function(registration) {
+                // Registration was successful
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            }, function(err) {
+                // registration failed :(
+                console.log('ServiceWorker registration failed: ', err);
+            });
+        });
     }
-    /*if ('caches' in window) {
-        const cache = await caches.open('cache');
-        const cacheitem = [
-            "/index.html",
-            "/styles.css",
-            "/scripts.js",
-            "/service-worker.js",
-            "/manifest.json",
-            "/game/index.html",
-            "/game/styles.css",
-            "/game/scripts.js",
-            "/game/2x2/index.html",
-            "/game/2x2/styles.css",
-            "/game/2x2/scripts.js"
-        ]
-        cache.addAll(cacheitem)
-
-    }*/
 
     isLeaving = true;
     frameObj = document.getElementById("game");
