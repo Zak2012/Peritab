@@ -41,6 +41,38 @@ function confirmReset() {
     }
 }
 
+const CACHE_NAME = 'Page-Cache';
+const urlsToCache = [
+    "/",
+    "/favicon.png",
+    "/game/",
+    "/game/2x2/",
+    "/game/2x2/scripts.js",
+    "/game/2x2/styles.css",
+    "/game/4x4/",
+    "/game/4x4/scripts.js",
+    "/game/4x4/styles.css",
+    "/game/styles.css",
+    "/icons/download.png",
+    "/icons/home.png",
+    "/icons/settings.png",
+    "/icons/trash.png",
+    "/logos/manifest-icon-192.png",
+    "/manifest.json",
+    "/scripts.js",
+    "/styles.css",
+];
+
+function deleteCache(e) {
+    for (let i = 0; i < urlsToCache.length; i++) {
+        e.delete(urlsToCache[i]);
+    }
+}
+
+function loadCache(e) {
+    e.addAll(urlsToCache);
+}
+
 window.onbeforeunload = function() {
     if (isLeaving) {
         localStorage.setItem("Score", "0");
@@ -51,6 +83,14 @@ async function start() {
     isOnline = window.navigator.onLine;
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('/service-worker.js')
+    }
+
+    if (isOnline) {
+        caches.open(CACHE_NAME).then(function(e) {
+            deleteCache(e);
+            loadCache(e);
+        })
+
     }
 
     isLeaving = true;
