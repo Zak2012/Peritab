@@ -44,10 +44,6 @@
     <script src="/scripts.js"></script>
     <link rel="manifest" href="/manifest.json">
 
-    <link rel="prefetch" href="/settings/">
-    <link rel="prefetch" href="/settings/styles.css">
-    <link rel="prefetch" href="/settings/scripts.js">
-
     <link rel="prefetch" href="/icons/back.png">
     <link rel="prefetch" href="/icons/download.png">
     <link rel="prefetch" href="/icons/home.png">
@@ -63,24 +59,32 @@
 </head>
 
 <body onload="start()">
-    <span class="option" id="menu-button" onclick="option()"></span>
-    <div class="menu">
-        <span class="option" id="option-1" onclick="optionChild(0)"></span>
-        <!--<span class="option" id="option-2" onclick="optionChild(1)"></span>-->
-        <span class="option" id="option-2" onclick="optionChild(1)"></span>
-        <!--<span class="option" id="option-3" onclick="optionChild(3)"></span>-->
 
-    </div>
-    <div class="game-container">
-        <span id="title">Peritab</span>
-        <span id="score">Score: 00000000</span>
-        <span id="high-score">High Score: 00000000</span>
-        <iframe title="game" id="game" src="/game" type="text/html"></iframe>
-    </div>
-    <div class="info">
+    <a id="home" href="#main" onclick="home()"></a>
+    <section id="main">
+        <div id="game-container">
+            <span id="game-title">Peritab</span>
+            <span id="score">Score: 00000000</span>
+            <span id="high-score">High Score: 00000000</span>
+            <iframe title="game" id="game" src="/game" type="text/html"></iframe>
+        </div>
+    </section>
+    <section id="settings">
+        <span id="settings-title">Settings</span>
+        <img src="/icons/settings.png" id="settings-icon">
+        <br>
+        <div id="reset" onclick="confirmReset()">
+            <div id="reset-text">Reset</div>
+            <img src="/icons/trash.png" id="reset-icon"></img>
+        </div>
+
+    </section>
+    <section id="infos">
         <a id="github" href="https://github.com/gsproduction727/Peritab" target="_blank" rel="noreferrer">Github</a>
         <a id="info-github" href="https://github.com/gsproduction727/Peritab/blob/main/README.md" target="_blank" rel="noreferrer">Info</a>
-    </div>
+    </section>
+
+
 </body>
 
 </html>

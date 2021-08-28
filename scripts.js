@@ -1,10 +1,8 @@
 var scoreObj = 0;
 var highScoreObj = 0;
-var menuBtnObj = 0;
 var frameObj = 0;
 var root = 0;
 
-var isMenuOpen = 0;
 var isLeaving = 0;
 var isOnline = 0;
 var score = localStorage.getItem("Score");
@@ -26,42 +24,21 @@ function root_set(property, value) {
     root.style.setProperty(property, value);
 }
 
-function option() {
-    if (isMenuOpen) {
-        root_set("--option-opacity", "0");
-        isMenuOpen = false
-        menuBtnObj.style.backgroundImage = "url('/icons/right.png')";
-    } else {
-        root_set("--option-opacity", "1");
-        isMenuOpen = true
-        menuBtnObj.style.backgroundImage = "url('/icons/left.png')";
-    }
-
+function home() {
+    frameObj.src = "/game"
 }
 
-function optionChild(index) {
-    if (isMenuOpen) {
-        isLeaving = false;
-        switch (index) {
-            case 0:
-                window.location.href = MENU[0];
-                break;
-            case 1:
-                window.location.reload();
-                break;
-            case 2:
-                break;
-            case 3:
-                break;
+function confirmReset() {
+    let reset = confirm("You sure you want to reset all? \n\nCaution: This action cannot be undone");
+    if (reset) {
+        let reset2 = confirm("Do you sure you want to continue? \n\nCaution: This action cannot be undone");
+        if (reset2) {
+            localStorage.clear();
+            sessionStorage.clear();
+            window.location.reload()
+            window.location.href = "/"
         }
-        root_set("--option-opacity", "0");
-        isMenuOpen = false
-        menuBtnObj.style.backgroundImage = "url('/icons/right.png')";
     }
-}
-
-function loadCache() {
-    //window.location.href = "/icons"
 }
 
 window.onbeforeunload = function() {
@@ -70,11 +47,8 @@ window.onbeforeunload = function() {
     }
 }
 
-window.addEventListener('offline', function(e) { isOnline = false; });
-
-window.addEventListener('online', function(e) { isOnline = true; });
-
 async function start() {
+    isOnline = window.navigator.onLine;
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('/service-worker.js')
     }
@@ -83,7 +57,6 @@ async function start() {
     frameObj = document.getElementById("game");
     scoreObj = document.getElementById("score");
     highScoreObj = document.getElementById("high-score");
-    menuBtnObj = document.getElementById("menu-button");
     root = document.querySelector(":root");
     localStorage.setItem("isLeaving", "true");
 
@@ -102,16 +75,6 @@ async function start() {
     highScoreObj.innerHTML = `High Score: ${pad(highScore)}`;
     scoreObj.innerHTML = `Score: ${pad(score)}`;
 
-    let optionOpacity = root_get("--option-opacity");
-    if (optionOpacity === "1") {
-        isMenuOpen = true;
-        menuBtnObj.style.ba
-        menuBtnObj.style.backgroundImage = "url('/icons/left.png')";
-    } else {
-        isMenuOpen = false;
-        menuBtnObj.style.backgroundImage = "url('/icons/right.png')";
-    }
-
     update();
 }
 
@@ -126,6 +89,9 @@ function update() {
     }
     if (score >= highScore) {
         localStorage.setItem("HighScore", score)
+    }
+    if (window.navigator.onLine != isOnline) {
+        isOnline = window.navigator.onLine;
     }
 
     setTimeout(update, (1 / 60 * 1000));
