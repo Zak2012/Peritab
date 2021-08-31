@@ -41,7 +41,6 @@
     <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="/styles.css">
     <link rel="shortcut icon" type="image/png" href="/favicon.png" />
-    <script src="/scripts.js"></script>
     <link rel="manifest" href="/manifest.json">
 
     <link rel="prefetch" href="/icons/back.png">
@@ -53,14 +52,13 @@
     <link rel="prefetch" href="/icons/settings.png">
     <link rel="prefetch" href="/icons/trash.png">
 
-
-
     <title>Peritab</title>
+
+    <script src="/scripts.js"></script>
 </head>
 
 <body onload="start()">
-
-    <a id="home" href="#main" onclick="home()"></a>
+    <button id="home" onclick="home()">.</button>
     <section id="main">
         <div id="game-container">
             <span id="game-title">Peritab</span>
@@ -71,17 +69,27 @@
     </section>
     <section id="settings">
         <span id="settings-title">Settings</span>
-        <img src="/icons/settings.png" id="settings-icon">
+        <img src="/icons/settings.png" alt="cogwheel" id="settings-icon">
         <br>
-        <div id="reset" onclick="confirmReset()">
-            <div id="reset-text">Reset</div>
-            <img src="/icons/trash.png" id="reset-icon"></img>
-        </div>
+        <button class="settings-button" id="reset" onclick="confirmReset()">
+            <span class="settings-button-text">Reset</span>
+            <img src="/icons/trash.png" alt="reset" class="settings-button-icon"></img>
+        </button>
+        <button class="settings-button" id="install" onclick="install()">
+            <span class="settings-button-text">Install</span>
+            <img src="/icons/download.png" alt="downlaod"  class="settings-button-icon"></img>
+        </button>
 
     </section>
     <section id="infos">
-        <a id="github" href="https://github.com/gsproduction727/Peritab" target="_blank" rel="noreferrer">Github</a>
-        <a id="info-github" href="https://github.com/gsproduction727/Peritab/blob/main/README.md" target="_blank" rel="noreferrer">Info</a>
+        <a id="github" href="https://github.com/gsproduction727/Peritab" target="_blank" rel="noreferrer">
+            <img src="/assets/github.png" alt="Github">
+            <span>More Infos on Github</span>
+        </a>
+        <a id="vercel" href="https://vercel.com" target="_blank" rel="noreferrer">
+            <img src="/assets/vercel.png" alt="Github">
+            <span>Website Powered by Vercel</span>
+        </a>
     </section>
 
 

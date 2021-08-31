@@ -2,7 +2,7 @@
     --light-grey: #3d3d3d;
     --game-container-height: 570px;
     --game-container-width: 520px;
-    --title-left: 2%;
+    --title-left: 4%;
     --title-font-size: 50px;
     --scores-font-size: 16px;
     --scores-right: 2.5%;
@@ -26,6 +26,7 @@ body {
 }
 
 section {
+    padding: 50px;
     height: 100vh;
     scroll-snap-align: start;
     position: relative;
@@ -57,17 +58,20 @@ section {
 #home {
     position: fixed;
     cursor: pointer;
+    font-size: 0px;
     left: 2.5%;
     bottom: 2.5%;
     height: 50px;
     width: 50px;
     z-index: 5;
+    padding: 0px;
     background-color: #b0b0b088;
     background-image: url(/icons/home.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: calc( 50px / 1.5);
     filter: invert();
+    border: 1px solid #b0b0b0b0;
     border-radius: var(--border-roundness);
     -webkit-border-radius: var(--border-roundness);
     -moz-border-radius: var(--border-roundness);
@@ -79,7 +83,7 @@ section {
 #game-title {
     position: absolute;
     font-size: var(--title-font-size);
-    padding-left: var(--title-left);
+    left: var(--title-left);
     display: inline-block;
 }
 
@@ -107,8 +111,7 @@ section {
 #score {
     position: absolute;
     font-size: var(--scores-font-size);
-    padding-right: var(--scores-right);
-    right: 0%;
+    right: var(--scores-right);
     top: 2%;
     display: inline-block;
 }
@@ -116,14 +119,12 @@ section {
 #high-score {
     position: absolute;
     font-size: var(--scores-font-size);
-    padding-right: var(--scores-right);
-    right: 0%;
+    right: var(--scores-right);
     top: 5%;
     display: inline-block;
 }
 
 #settings {
-    padding: 10%;
     width: 100%;
     background-color: #313131;
 }
@@ -148,15 +149,15 @@ section {
 
 #settings-icon:hover {
     -webkit-animation-name: rotate;
-    -webkit-animation-duration: 5s;
+    -webkit-animation-duration: 3s;
     -webkit-animation-iteration-count: infinite;
     -webkit-animation-timing-function: linear;
     -moz-animation-name: rotate;
-    -moz-animation-duration: 5s;
+    -moz-animation-duration: 3s;
     -moz-animation-iteration-count: infinite;
     -moz-animation-timing-function: linear;
     animation-name: rotate;
-    animation-duration: 5s;
+    animation-duration: 3s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
 }
@@ -188,21 +189,24 @@ section {
     }
 }
 
-#reset {
-    background-color: #ff5555;
+.settings-button {
     justify-content: center;
-    display: inline-block;
-    position: relative;
-    top: 50%;
-    border-radius: var(--border-roundness) 0 0 var(--border-roundness);
-    -webkit-border-radius: var(--border-roundness) 0 0 var(--border-roundness);
-    -moz-border-radius: var(--border-roundness) 0 0 var(--border-roundness);
-    -ms-border-radius: var(--border-roundness) 0 0 var(--border-roundness);
-    -o-border-radius: var(--border-roundness) 0 0 var(--border-roundness);
+    position: absolute;
+    height: 50px;
+    padding: 0px;
+    border-right: 0px none #00000000;
+    border-radius: var(--border-roundness);
+    -webkit-border-radius: var(--border-roundness);
+    -moz-border-radius: var(--border-roundness);
+    -ms-border-radius: var(--border-roundness);
+    -o-border-radius: var(--border-roundness);
+    box-shadow: 0 5px 5px #555555;
 }
 
-#reset-text {
+.settings-button-text {
     cursor: pointer;
+    position: relative;
+    bottom: 45%;
     color: #000000;
     padding: 1em;
     padding-left: 2em;
@@ -211,25 +215,35 @@ section {
     display: inline-block;
 }
 
-#reset-icon {
+.settings-button-icon {
     cursor: pointer;
-    position: absolute;
+    position: relative;
     top: 50%;
-    width: 60px;
+    width: 59px;
     height: 50px;
     padding-right: 10px;
-    background-color: #ff5555;
     display: inline-block;
     transform: translateY(-50%);
     -webkit-transform: translateY(-50%);
     -moz-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     -o-transform: translateY(-50%);
-    border-radius: 0 var(--border-roundness) var(--border-roundness) 0;
-    -webkit-border-radius: 0 var(--border-roundness) var(--border-roundness) 0;
-    -moz-border-radius: 0 var(--border-roundness) var(--border-roundness) 0;
-    -ms-border-radius: 0 var(--border-roundness) var(--border-roundness) 0;
-    -o-border-radius: 0 var(--border-roundness) var(--border-roundness) 0;
+}
+
+#reset {
+    top: calc(50px + 10%);
+    left: calc(50px);
+    background-color: #ff5555;
+    border: 1px solid #ff1111;
+    box-shadow: 0 5px 5px #883333;
+}
+
+#install {
+    top: calc(50px + 20%);
+    left: calc(50px);
+    background-color: #55ff55;
+    border: 1px solid #11ff11;
+    box-shadow: 0 5px 5px #338833;
 }
 
 #infos {
@@ -238,20 +252,30 @@ section {
     background-color: #212121;
 }
 
-#infos a {
-    color: #60a5fa;
+#infos span {
+    color: #ffffff;
+    text-decoration: none;
 }
 
-#info-github {
-    position: absolute;
-    top: 30%;
-    left: 5%;
+#infos img {
+    height: 64px;
+    width: 64px;
+    border: 3px solid #ffffff;
+    box-shadow: 0 5px 5px #555555;
+    border-radius: 32px;
+    -webkit-border-radius: 32px;
+    -moz-border-radius: 32px;
+    -ms-border-radius: 32px;
+    -o-border-radius: 32px;
 }
 
 #github {
     position: absolute;
-    top: 10%;
-    left: 5%;
+}
+
+#vercel {
+    position: absolute;
+    top: calc(64px + 64px + 50px);
 }
 
 @media only screen and (max-width: 550px),
@@ -259,10 +283,10 @@ only screen and (max-height: 570px) {
     body {
         --game-container-height: 350px;
         --game-container-width: 320px;
-        --title-left: 3%;
+        --title-left: 7%;
         --title-font-size: 30px;
         --scores-font-size: 12px;
-        --scores-right: 2%;
+        --scores-right: 4%;
         --game-size: 300px;
     }
 }

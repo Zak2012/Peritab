@@ -6,6 +6,7 @@ body {
     cursor: pointer;
     width: 20%;
     height: 20%;
+    position: absolute;
     background-color: #ffffff;
     display: flex;
     justify-content: center;
@@ -16,100 +17,85 @@ body {
     -moz-border-radius: 15px;
     -ms-border-radius: 15px;
     -o-border-radius: 15px;
+    box-shadow: 0 5px 5px #555555;
 }
 
 #card-0 {
-    position: absolute;
     top: 4%;
     left: 4%;
 }
 
 #card-1 {
-    position: absolute;
     top: 4%;
     left: 28%;
 }
 
 #card-2 {
-    position: absolute;
     top: 4%;
     right: 28%;
 }
 
 #card-3 {
-    position: absolute;
     top: 4%;
     right: 4%;
 }
 
 #card-4 {
-    position: absolute;
     top: 28%;
     left: 4%;
 }
 
 #card-5 {
-    position: absolute;
     top: 28%;
     left: 28%;
 }
 
 #card-6 {
-    position: absolute;
     top: 28%;
     right: 28%;
 }
 
 #card-7 {
-    position: absolute;
     top: 28%;
     right: 4%;
 }
 
 #card-8 {
-    position: absolute;
     bottom: 28%;
     left: 4%;
 }
 
 #card-9 {
-    position: absolute;
     bottom: 28%;
     left: 28%;
 }
 
 #card-10 {
-    position: absolute;
     bottom: 28%;
     right: 28%;
 }
 
 #card-11 {
-    position: absolute;
     bottom: 28%;
     right: 4%;
 }
 
 #card-12 {
-    position: absolute;
     bottom: 4%;
     left: 4%;
 }
 
 #card-13 {
-    position: absolute;
     bottom: 4%;
     left: 28%;
 }
 
 #card-14 {
-    position: absolute;
     bottom: 4%;
     right: 28%;
 }
 
 #card-15 {
-    position: absolute;
     bottom: 4%;
     right: 4%;
 }

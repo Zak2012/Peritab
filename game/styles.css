@@ -9,15 +9,14 @@ body {
     cursor: default;
 }
 
-#a2x2 {
+.button-difficulty {
     color: #ffffff;
     position: absolute;
+    cursor: pointer;
+    font-size: 20px;
     top: 50%;
-    left: 25%;
     width: 40%;
     height: 40%;
-    cursor: pointer;
-    background-color: #3333aa;
     transform: translate(-50%, -50%);
     -webkit-transform: translate(-50%, -50%);
     -moz-transform: translate(-50%, -50%);
@@ -28,49 +27,15 @@ body {
     -moz-border-radius: var(--button-roundness);
     -ms-border-radius: var(--button-roundness);
     -o-border-radius: var(--button-roundness);
+    background-color: #5555ff;
+    border: 1px solid #3333ff;
+    box-shadow: 0 5px 5px #1111ff;
 }
 
-#a2x2-child {
-    font-size: 20px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
+#a2x2 {
+    left: 25%;
 }
 
 #a4x4 {
-    color: #ffffff;
-    position: absolute;
-    top: 50%;
     left: 75%;
-    width: 40%;
-    height: 40%;
-    cursor: pointer;
-    background-color: #3333aa;
-    transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
-    border-radius: var(--button-roundness);
-    -webkit-border-radius: var(--button-roundness);
-    -moz-border-radius: var(--button-roundness);
-    -ms-border-radius: var(--button-roundness);
-    -o-border-radius: var(--button-roundness);
-}
-
-#a4x4-child {
-    font-size: 20px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
 }
