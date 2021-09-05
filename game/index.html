@@ -7,21 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Peritab">
     <link rel="stylesheet" href="/game/styles.css">
-    <link rel="prefetch" href="/game/2x2/">
-    <link rel="prefetch" href="/game/2x2/styles.css">
-    <link rel="prefetch" href="/game/2x2/scripts.js">
-
-    <link rel="prefetch" href="/game/4x4/">
-    <link rel="prefetch" href="/game/4x4/styles.css">
-    <link rel="prefetch" href="/game/4x4/scripts.js">
-
+    <script src="/game/scripts.js"></script>
 </head>
 
 <body>
-    <button class="button-difficulty" id="a2x2" onclick="window.location.href = '/game/2x2/'">
+    <button class="button-difficulty" id="a2x2" onclick="start(4)">
         2 X 2
     </button>
-    <button class="button-difficulty" id="a4x4" onclick="window.location.href = '/game/4x4/'">
+    <button class="button-difficulty" id="a4x4" onclick="start(16)">
         4 X 4
     </button>
 </body>

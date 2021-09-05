@@ -1,5 +1,6 @@
 :root {
     --button-roundness: 25%;
+    --card-size: 0;
 }
 
 body {
@@ -9,7 +10,12 @@ body {
     cursor: default;
 }
 
+:focus-visible {
+    outline: none;
+}
+
 .button-difficulty {
+    padding: 0;
     color: #ffffff;
     position: absolute;
     cursor: pointer;
@@ -38,4 +44,24 @@ body {
 
 #a4x4 {
     left: 75%;
+}
+
+.card {
+    padding: 0;
+    position: absolute;
+    cursor: pointer;
+    width: var(--card-size);
+    height: var(--card-size);
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #000000;
+    border-radius: 30%;
+    -webkit-border-radius: 30%;
+    -moz-border-radius: 30%;
+    -ms-border-radius: 30%;
+    -o-border-radius: 30%;
+    box-shadow: 0 5px 5px #555555;
+    background-size: contain;
 }

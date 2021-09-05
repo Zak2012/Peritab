@@ -1,16 +1,23 @@
-var scoreObj = 0;
-var highScoreObj = 0;
-var frameObj = 0;
-var homebtnObj = 0;
-var installBtnObj = 0;
-var resetbtnObj = 0;
-var root = 0;
+var scoreObj;
+var highScoreObj;
+var frameObj;
+var homebtnObj;
+var installBtnObj;
+var resetbtnObj;
+var root;
+var nav;
+var isOnline;
 
-var isOnline = 0;
 var score = localStorage.getItem("Score");
 var highScore = localStorage.getItem("HighScore");
 
 const buttonPressMs = 200;
+
+readTextFile("/navigation.json", function(text) {
+    localStorage.setItem("navigation", text)
+});
+
+nav = JSON.parse(localStorage.getItem("navigation"))
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -21,15 +28,17 @@ function pad(num) {
     return s.substr(s.length - 8);
 }
 
-function root_get(property) {
-    let rs = getComputedStyle(root);
-    return rs.getPropertyValue(property);
+function readTextFile(file, callback) {
+    var rawFile = new XMLHttpRequest();
+    rawFile.overrideMimeType("application/json");
+    rawFile.open("GET", file, true);
+    rawFile.onreadystatechange = function() {
+        if (rawFile.readyState === 4 && rawFile.status == "200") {
+            callback(rawFile.responseText);
+        }
+    }
+    rawFile.send(null);
 }
-
-function root_set(property, value) {
-    root.style.setProperty(property, value);
-}
-
 
 async function home() {
     homebtnObj.style.backgroundColor = "#ffffff88"
@@ -70,7 +79,6 @@ async function install() {
     await sleep(10)
     deferredPrompt.prompt();
     const { outcome } = await deferredPrompt.userChoice;
-    console.log(`User response to the install prompt: ${outcome}`);
     deferredPrompt = null;
 }
 
@@ -86,26 +94,10 @@ window.addEventListener('appinstalled', () => {
     window.location.reload();
 });
 
+var cards = nav.cards.concat(nav.cardsMatch);
+
 const CACHE_NAME = 'Page-Cache';
-const urlsToCache = [
-    "/",
-    "/assets/github.png",
-    "/assets/vercel.png",
-    "/game/",
-    "/game/2x2/",
-    "/game/2x2/scripts.js",
-    "/game/2x2/styles.css",
-    "/game/4x4/",
-    "/game/4x4/scripts.js",
-    "/game/4x4/styles.css",
-    "/game/styles.css",
-    "/icons/download.png",
-    "/icons/home.png",
-    "/icons/settings.png",
-    "/icons/trash.png",
-    "/scripts.js",
-    "/styles.css",
-];
+const urlsToCache = nav.cache.concat(cards);
 
 function deleteCache() {
     caches.delete(CACHE_NAME)
@@ -148,27 +140,31 @@ function getElmId() {
     installBtnObj = document.getElementById("install");
     resetbtnObj = document.getElementById("reset");
     homebtnObj = document.getElementById("home");
-    root = document.querySelector(":root");
 }
 
 window.onbeforeunload = function() {
-    if (isLeaving) {
+    if (localStorage.getItem("isLeaving") == "true") {
         localStorage.setItem("Score", "0");
     }
+    localStorage.setItem("isLeaving", "true")
 }
 
-async function start() {
+function setCSS() {
+    installBtnObj.style.display = "none";
+}
+
+function start() {
     isOnline = window.navigator.onLine;
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('/service-worker.js')
     }
 
-    if (localStorage.getItem("isLeaving") != "false") {
+    if (localStorage.getItem("isLeaving") == "true") {
         updateCache();
     }
-    getElmId();
 
-    installBtnObj.style.display = "none";
+    getElmId();
+    setCSS();
 
     setScore();
     update();

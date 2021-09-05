@@ -10,6 +10,7 @@
     --option-height: 16px;
     --option-opacity: 0;
     --border-roundness: 25px;
+    --button-link-size: 20vh
 }
 
 * {
@@ -23,6 +24,7 @@ body {
     user-select: none;
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
+    overflow-x: clip;
 }
 
 section {
@@ -30,6 +32,10 @@ section {
     height: 100vh;
     scroll-snap-align: start;
     position: relative;
+}
+
+:focus-visible {
+    outline: none;
 }
 
 #main {
@@ -250,6 +256,7 @@ section {
     padding: 10%;
     font-size: 1em;
     background-color: #212121;
+    flex-flow: column;
 }
 
 #infos span {
@@ -258,24 +265,24 @@ section {
 }
 
 #infos img {
-    height: 64px;
-    width: 64px;
+    height: clamp(10px, var(--button-link-size), 64px);
+    width: clamp(10px, var(--button-link-size), 64px);
     border: 3px solid #ffffff;
     box-shadow: 0 5px 5px #555555;
-    border-radius: 32px;
-    -webkit-border-radius: 32px;
-    -moz-border-radius: 32px;
-    -ms-border-radius: 32px;
-    -o-border-radius: 32px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
 }
 
 #github {
-    position: absolute;
+    position: relative;
+    margin-right: 100%;
 }
 
 #vercel {
-    position: absolute;
-    top: calc(64px + 64px + 50px);
+    position: relative;
 }
 
 @media only screen and (max-width: 550px),
@@ -288,5 +295,6 @@ only screen and (max-height: 570px) {
         --scores-font-size: 12px;
         --scores-right: 4%;
         --game-size: 300px;
+        --button-link-size: 20vw
     }
 }

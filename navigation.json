@@ -1,0 +1,46 @@
+{
+    "cards": [
+        "/assets/cards/1H.png",
+        "/assets/cards/1He.png",
+        "/assets/cards/1Li.png",
+        "/assets/cards/1Be.png",
+        "/assets/cards/1B.png",
+        "/assets/cards/1C.png",
+        "/assets/cards/1N.png",
+        "/assets/cards/1O.png",
+        "/assets/cards/1F.png",
+        "/assets/cards/1Ne.png",
+        "/assets/cards/1Na.png",
+        "/assets/cards/1Mg.png"
+    ],
+    "cardsMatch": [
+        "/assets/cards/2H.png",
+        "/assets/cards/2He.png",
+        "/assets/cards/2Li.png",
+        "/assets/cards/2Be.png",
+        "/assets/cards/2B.png",
+        "/assets/cards/2C.png",
+        "/assets/cards/2N.png",
+        "/assets/cards/2O.png",
+        "/assets/cards/2F.png",
+        "/assets/cards/2Ne.png",
+        "/assets/cards/2Na.png",
+        "/assets/cards/2Mg.png"
+    ],
+    "cache": [
+        "/",
+        "/assets/github.png",
+        "/assets/vercel.png",
+        "/game/",
+        "/game/scripts.js",
+        "/game/styles.css",
+        "/icons/download.png",
+        "/icons/home.png",
+        "/icons/settings.png",
+        "/icons/trash.png",
+        "/navigation.json",
+        "/scripts.js",
+        "/styles.css"
+    ]
+
+}
