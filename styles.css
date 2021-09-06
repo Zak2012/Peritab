@@ -34,10 +34,6 @@ section {
     position: relative;
 }
 
-:focus-visible {
-    outline: none;
-}
-
 #main {
     background-color: #181818;
 }
@@ -71,18 +67,23 @@ section {
     width: 50px;
     z-index: 5;
     padding: 0px;
-    background-color: #b0b0b088;
-    background-image: url(/icons/home.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: calc( 50px / 1.5);
-    filter: invert();
-    border: 1px solid #b0b0b0b0;
+    background-color: #4f4f4f77;
+    border: 1px solid #4f4f4f4f;
     border-radius: var(--border-roundness);
     -webkit-border-radius: var(--border-roundness);
     -moz-border-radius: var(--border-roundness);
     -ms-border-radius: var(--border-roundness);
     -o-border-radius: var(--border-roundness);
+}
+
+#home>img {
+    cursor: pointer;
+    font-size: 0px;
+    height: calc( 50px / 1.5);
+    width: calc( 50px / 1.5);
+    z-index: 5;
+    padding: 0px;
+    filter: invert();
     -webkit-filter: invert();
 }
 
@@ -196,8 +197,8 @@ section {
 }
 
 .settings-button {
+    margin-right: 10px;
     justify-content: center;
-    position: absolute;
     height: 50px;
     padding: 0px;
     border-right: 0px none #00000000;
@@ -212,22 +213,11 @@ section {
 .settings-button-text {
     cursor: pointer;
     position: relative;
-    bottom: 45%;
     color: #000000;
     padding: 1em;
     padding-left: 2em;
     padding-right: 2em;
     border-right: 3px solid #000000;
-    display: inline-block;
-}
-
-.settings-button-icon {
-    cursor: pointer;
-    position: relative;
-    top: 50%;
-    width: 59px;
-    height: 50px;
-    padding-right: 10px;
     display: inline-block;
     transform: translateY(-50%);
     -webkit-transform: translateY(-50%);
@@ -236,20 +226,70 @@ section {
     -o-transform: translateY(-50%);
 }
 
+.settings-button-icon {
+    cursor: pointer;
+    position: relative;
+    width: 59px;
+    height: 50px;
+    padding-right: 10px;
+    display: inline-block;
+}
+
 #reset {
-    top: calc(50px + 10%);
-    left: calc(50px);
+    margin-top: 10px;
     background-color: #ff5555;
     border: 1px solid #ff1111;
     box-shadow: 0 5px 5px #883333;
 }
 
 #install {
-    top: calc(50px + 20%);
-    left: calc(50px);
+    display: none;
+    margin-top: 10px;
     background-color: #55ff55;
     border: 1px solid #11ff11;
     box-shadow: 0 5px 5px #338833;
+}
+
+#sound-slider-container {
+    position: relative;
+    margin-top: 10px;
+    width: 100%;
+    max-width: 300px;
+    height: 70px;
+    background-color: #555555;
+    border-radius: 35px;
+    -webkit-border-radius: 35px;
+    -moz-border-radius: 35px;
+    -ms-border-radius: 35px;
+    -o-border-radius: 35px;
+}
+
+#sound-slider-text {
+    position: relative;
+    left: 10%;
+    top: 10%;
+}
+
+#sound-slider-value {
+    position: absolute;
+    right: 22%;
+    top: 10%;
+}
+
+#sound-slider-pic {
+    position: absolute;
+    height: 32px;
+    right: 10%;
+    filter: invert();
+    -webkit-filter: invert();
+}
+
+#sound-slider {
+    margin: 10px 10%;
+    width: 80%;
+    height: 25px;
+    background: #d3d3d3;
+    outline: none;
 }
 
 #infos {

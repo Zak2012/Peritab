@@ -1,4 +1,4 @@
-var CACHE_NAME = 'Page-Cache';
+var CACHE_NAME = "Page-Cache";
 var urlsToCache = [];
 
 self.addEventListener('install', function(event) {

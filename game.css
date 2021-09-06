@@ -1,0 +1,63 @@
+:root {
+    --button-roundness: 25%;
+    --card-size: 0;
+}
+
+body {
+    background-color: #181818;
+    color: #ffffff;
+    user-select: none;
+    cursor: default;
+}
+
+.button-difficulty {
+    padding: 0;
+    color: #ffffff;
+    position: absolute;
+    cursor: pointer;
+    font-size: 20px;
+    top: 50%;
+    width: 40%;
+    height: 40%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    border-radius: var(--button-roundness);
+    -webkit-border-radius: var(--button-roundness);
+    -moz-border-radius: var(--button-roundness);
+    -ms-border-radius: var(--button-roundness);
+    -o-border-radius: var(--button-roundness);
+    background-color: #5555ff;
+    border: 1px solid #3333ff;
+    box-shadow: 0 5px 5px #1111ff;
+}
+
+#a2x2 {
+    left: 25%;
+}
+
+#a4x4 {
+    left: 75%;
+}
+
+.card {
+    padding: 0;
+    position: absolute;
+    cursor: pointer;
+    width: var(--card-size);
+    height: var(--card-size);
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #000000;
+    border-radius: 30%;
+    -webkit-border-radius: 30%;
+    -moz-border-radius: 30%;
+    -ms-border-radius: 30%;
+    -o-border-radius: 30%;
+    box-shadow: 0 5px 5px #555555;
+    background-size: contain;
+}

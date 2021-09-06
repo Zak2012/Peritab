@@ -1,23 +1,64 @@
-var scoreObj;
-var highScoreObj;
-var frameObj;
-var homebtnObj;
-var installBtnObj;
-var resetbtnObj;
-var root;
-var nav;
-var isOnline;
+const frameObj = document.getElementById("game");
+const scoreObj = document.getElementById("score");
+const highScoreObj = document.getElementById("high-score");
+const installBtnObj = document.getElementById("install");
+const resetbtnObj = document.getElementById("reset");
+const homebtnObj = document.getElementById("home");
+const volumeSliderObj = document.getElementById("sound-slider");
+const volumeSliderTxtObj = document.getElementById("sound-slider-value");
+const volumeSliderPicObj = document.getElementById("sound-slider-pic");
+const sectionObj = document.getElementById("main");
 
+readTextFile("/navigation.json", function(text) {
+    localStorage.setItem("navigation", text);
+});
+
+const nav = JSON.parse(localStorage.getItem("navigation"));
+
+if (localStorage.getItem("first?") != "no") {
+    localStorage.setItem("first?", "no")
+    window.location.reload();
+}
+
+const sound = loadSound();
+
+var isOnline = window.navigator.onLine;
 var score = localStorage.getItem("Score");
 var highScore = localStorage.getItem("HighScore");
 
+const cacheName = "Page-Cache";
+const urlsToCache = nav.cache.concat(nav.cards.concat(nav.cardsMatch).concat(nav.sounds).concat(nav.icons));
+
 const buttonPressMs = 200;
 
-readTextFile("/navigation.json", function(text) {
-    localStorage.setItem("navigation", text)
-});
 
-nav = JSON.parse(localStorage.getItem("navigation"))
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js')
+}
+
+if (localStorage.getItem("isLeaving") == "true") {
+    if (isOnline) {
+        deleteCache();
+        caches.open(cacheName).then(function(e) {
+            loadCache(e);
+        })
+    }
+}
+
+function loadSound() {
+    let sound = arrayInit(nav.sounds.length);
+    for (let i = 0; i < sound.length; i++) {
+        sound[i] = new Audio(nav.sounds[i]);
+    }
+    return sound
+}
+
+function setVolume() {
+    volume = localStorage.getItem("volume")
+    for (let i = 0; i < sound.length; i++) {
+        sound[i].volume = volume / 100;
+    }
+}
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -26,6 +67,14 @@ function sleep(ms) {
 function pad(num) {
     var s = "00000000" + num;
     return s.substr(s.length - 8);
+}
+
+function arrayInit(n, val = 0) {
+    let a = [];
+    for (let i = 0; i < n; i++) {
+        a.push(val);
+    }
+    return a;
 }
 
 function readTextFile(file, callback) {
@@ -42,14 +91,10 @@ function readTextFile(file, callback) {
 
 async function home() {
     homebtnObj.style.backgroundColor = "#ffffff88"
-    homebtnObj.style.filter = "none"
-    homebtnObj.style.webkitFilter = "none"
     window.location.replace("/#main")
-    frameObj.src = "/game/"
+    frameObj.src = "/game.html"
     await sleep(buttonPressMs)
-    homebtnObj.style.backgroundColor = "#b0b0b088"
-    homebtnObj.style.filter = "invert()"
-    homebtnObj.style.webkitFilter = "invert()"
+    homebtnObj.style.backgroundColor = "#4f4f4f77"
 }
 
 async function confirmReset() {
@@ -70,7 +115,7 @@ async function confirmReset() {
     }
 }
 
-let deferredPrompt;
+var deferredPrompt;
 
 async function install() {
     installBtnObj.style.backgroundColor = "#aaffaa"
@@ -81,6 +126,29 @@ async function install() {
     const { outcome } = await deferredPrompt.userChoice;
     deferredPrompt = null;
 }
+
+function deleteCache() {
+    caches.delete(cacheName)
+}
+
+function loadCache(e) {
+    e.addAll(urlsToCache);
+}
+
+highScore = localStorage.getItem("HighScore");
+score = localStorage.getItem("Score");
+
+if (score == null || highScore == null) {
+    localStorage.setItem("HighScore", "0")
+    localStorage.setItem("Score", "0")
+}
+
+highScore = localStorage.getItem("HighScore");
+score = localStorage.getItem("Score");
+
+
+highScoreObj.innerHTML = `High Score: ${pad(highScore)}`;
+scoreObj.innerHTML = `Score: ${pad(score)}`;
 
 window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
@@ -94,54 +162,6 @@ window.addEventListener('appinstalled', () => {
     window.location.reload();
 });
 
-var cards = nav.cards.concat(nav.cardsMatch);
-
-const CACHE_NAME = 'Page-Cache';
-const urlsToCache = nav.cache.concat(cards);
-
-function deleteCache() {
-    caches.delete(CACHE_NAME)
-}
-
-function loadCache(e) {
-    e.addAll(urlsToCache);
-}
-
-function updateCache() {
-    if (isOnline) {
-        deleteCache();
-        caches.open(CACHE_NAME).then(function(e) {
-            loadCache(e);
-        })
-    }
-}
-
-function setScore() {
-    highScore = localStorage.getItem("HighScore");
-    score = localStorage.getItem("Score");
-
-    if (score == null || highScore == null) {
-        localStorage.setItem("HighScore", "0")
-        localStorage.setItem("Score", "0")
-    }
-
-    highScore = localStorage.getItem("HighScore");
-    score = localStorage.getItem("Score");
-
-
-    highScoreObj.innerHTML = `High Score: ${pad(highScore)}`;
-    scoreObj.innerHTML = `Score: ${pad(score)}`;
-}
-
-function getElmId() {
-    frameObj = document.getElementById("game");
-    scoreObj = document.getElementById("score");
-    highScoreObj = document.getElementById("high-score");
-    installBtnObj = document.getElementById("install");
-    resetbtnObj = document.getElementById("reset");
-    homebtnObj = document.getElementById("home");
-}
-
 window.onbeforeunload = function() {
     if (localStorage.getItem("isLeaving") == "true") {
         localStorage.setItem("Score", "0");
@@ -149,28 +169,50 @@ window.onbeforeunload = function() {
     localStorage.setItem("isLeaving", "true")
 }
 
-function setCSS() {
-    installBtnObj.style.display = "none";
-}
-
-function start() {
+window.addEventListener('online', function() {
     isOnline = window.navigator.onLine;
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/service-worker.js')
+
+});
+
+window.addEventListener('offline', function() {
+    isOnline = window.navigator.onLine;
+
+});
+
+document.addEventListener('scroll', function() {
+    var scroll = window.scrollY;
+    var winHeight = sectionObj.clientHeight;
+    if (scroll == 0) {
+        document.title = "Game - Peritab";
+    } else if (scroll <= winHeight * 1) {
+        document.title = "Settings - Peritab";
+    } else if (scroll <= winHeight * 2) {
+        document.title = "Infos - Peritab";
+    } else {
+        document.title = "Peritab";
     }
 
-    if (localStorage.getItem("isLeaving") == "true") {
-        updateCache();
+});
+
+const button = document.querySelector("button");
+button.addEventListener("click", function() {
+    sound[0].play();
+});
+
+volumeSliderObj.addEventListener("input", function() {
+    localStorage.setItem("volume", volumeSliderObj.value)
+    volumeSliderTxtObj.innerHTML = `${localStorage.getItem("volume")}%`
+    setVolume()
+    if (volumeSliderObj.value > 50) {
+        volumeSliderPicObj.src = nav.icons[6]
+    } else if (volumeSliderObj.value == 0) {
+        volumeSliderPicObj.src = nav.icons[4]
+    } else {
+        volumeSliderPicObj.src = nav.icons[5]
     }
+});
 
-    getElmId();
-    setCSS();
-
-    setScore();
-    update();
-}
-
-function update() {
+window.addEventListener('storage', () => {
     if (score != localStorage.getItem("Score")) {
         score = localStorage.getItem("Score");
         scoreObj.innerHTML = `Score: ${pad(score)}`;
@@ -182,9 +224,4 @@ function update() {
     if (score >= highScore) {
         localStorage.setItem("HighScore", score)
     }
-    if (window.navigator.onLine != isOnline) {
-        isOnline = window.navigator.onLine;
-    }
-
-    setTimeout(update, (1 / 60 * 1000));
-}
+});

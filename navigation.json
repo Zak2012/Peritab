@@ -27,17 +27,26 @@
         "/assets/cards/2Na.png",
         "/assets/cards/2Mg.png"
     ],
+    "sounds": [
+        "/assets/sounds/click.wav"
+    ],
+    "icons": [
+        "/assets/icons/download.png",
+        "/assets/icons/home.png",
+        "/assets/icons/settings.png",
+        "/assets/icons/trash.png",
+        "/assets/icons/mute.png",
+        "/assets/icons/volume_0.png",
+        "/assets/icons/volume_1.png"
+    ],
     "cache": [
         "/",
+        "/404.html",
         "/assets/github.png",
         "/assets/vercel.png",
-        "/game/",
-        "/game/scripts.js",
-        "/game/styles.css",
-        "/icons/download.png",
-        "/icons/home.png",
-        "/icons/settings.png",
-        "/icons/trash.png",
+        "/game.html",
+        "/game.js",
+        "/game.css",
         "/navigation.json",
         "/scripts.js",
         "/styles.css"
